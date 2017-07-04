@@ -34,38 +34,12 @@
     <div class="topBar inverse">
         <div class="container">
             <ul class="list-inline pull-left hidden-sm hidden-xs">
-                <li><span class="text-primary">Tiene Alguna Pregunta?</span> Llame 985012403</li>
+                <li><span class="text-primary">Alguna Consulta?</span> Llámenos 985012403</li>
             </ul>
 
             <ul class="topBarNav pull-right">
-                @*<li class="linkdown">
-                    <a href="javascript:void(0);">
-                        <i class="fa fa-usd mr-5"></i>
-                        USD
-                        <i class="fa fa-angle-down ml-5"></i>
-                    </a>
-                    <ul class="w-100">
-                        <li><a href="javascript:void(0);"><i class="fa fa-eur mr-5"></i>EUR</a></li>
-                        <li class="active"><a href="javascript:void(0);"><i class="fa fa-usd mr-5"></i>USD</a></li>
-                        <li><a href="javascript:void(0);"><i class="fa fa-gbp mr-5"></i>GBP</a></li>
-                    </ul>
-                </li>*@
+             
 
-                @*<li class="linkdown">
-                    <a href="javascript:void(0);">
-                        <img src="img/flags/flag-french.jpg" class="mr-5" alt="">
-                        <span class="hidden-xs">
-                            French
-                            <i class="fa fa-angle-down ml-5"></i>
-                        </span>
-                    </a>
-                    <ul class="w-100">
-                        <li><a href="javascript:void(0);"><img src="img/flags/flag-english.jpg" class="mr-5" alt="">English</a></li>
-                        <li class="active"><a href="javascript:void(0);"><img src="img/flags/flag-french.jpg" class="mr-5" alt="">French</a></li>
-                        <li><a href="javascript:void(0);"><img src="img/flags/flag-german.jpg" class="mr-5" alt="">German</a></li>
-                        <li><a href="javascript:void(0);"><img src="img/flags/flag-spain.jpg" class="mr-5" alt="">Spain</a></li>
-                    </ul>
-                </li>*@
                 <li class="linkdown">
                     <a href="javascript:void(0);">
                         <i class="fa fa-user mr-5"></i>
@@ -79,7 +53,7 @@
                         <li><a href="register.html">Registrarse</a></li>
                         <li class="divider"></li>
                         <li><a href="wishlist.html">Lista de Deseos (5)</a></li>
-                        <li><a href="cart.html">Carrito</a></li>
+                        <li>@Html.ActionLink("Ver Carrito", "vercarrito", "VerCarrito")</li>
                         <li><a href="checkout.html">Caja</a></li>
                     </ul>
                 </li>
@@ -99,61 +73,62 @@
                                     @*primer producto*@
 
                                     @*<li>
-                                        <a href="shop-single-product-v1.html" class="product-image">
-                                            <img src="img/products/men_06.jpg" alt="Sample Product ">
-                                        </a>
-                                        <div class="product-details">
-                                            <div class="close-icon">
-                                                <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
-                                            </div>
-                                            <p class="product-name">
-                                                <a href="shop-single-product-v1.html">Lorem Ipsum dolor sit</a>
-                                            </p>
-                                            <strong>1</strong> x <span class="price text-primary">$59.99</span>
-                                        </div><!-- end product-details -->
-                                    </li><!-- end item -->*@
+                            <a href="shop-single-product-v1.html" class="product-image">
+                                <img src="img/products/men_06.jpg" alt="Sample Product ">
+                            </a>
+                            <div class="product-details">
+                                <div class="close-icon">
+                                    <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
+                                </div>
+                                <p class="product-name">
+                                    <a href="shop-single-product-v1.html">Lorem Ipsum dolor sit</a>
+                                </p>
+                                <strong>1</strong> x <span class="price text-primary">$59.99</span>
+                            </div><!-- end product-details -->
+                        </li><!-- end item -->*@
 
                                     @*segundo producto*@
 
                                     @*<li>
-                                        <a href="shop-single-product-v1.html" class="product-image">
-                                            <img src="img/products/shoes_01.jpg" alt="Sample Product ">
-                                        </a>
-                                        <div class="product-details">
-                                            <div class="close-icon">
-                                                <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
-                                            </div>
-                                            <p class="product-name">
-                                                <a href="shop-single-product-v1.html">Lorem Ipsum dolor sit</a>
-                                            </p>
-                                            <strong>1</strong> x <span class="price text-primary">$39.99</span>
-                                        </div><!-- end product-details -->
-                                    </li><!-- end item -->*@
+                            <a href="shop-single-product-v1.html" class="product-image">
+                                <img src="img/products/shoes_01.jpg" alt="Sample Product ">
+                            </a>
+                            <div class="product-details">
+                                <div class="close-icon">
+                                    <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
+                                </div>
+                                <p class="product-name">
+                                    <a href="shop-single-product-v1.html">Lorem Ipsum dolor sit</a>
+                                </p>
+                                <strong>1</strong> x <span class="price text-primary">$39.99</span>
+                            </div><!-- end product-details -->
+                        </li><!-- end item -->*@
 
                                     @*tercer producto*@
 
                                     @*<li>
-                                        <a href="shop-single-product-v1.html" class="product-image">
-                                            <img src="img/products/bags_07.jpg" alt="Sample Product ">
-                                        </a>
-                                        <div class="product-details">
-                                            <div class="close-icon">
-                                                <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
-                                            </div>
-                                            <p class="product-name">
-                                                <a href="shop-single-product-v1.html">Lorem Ipsum dolor sit</a>
-                                            </p>
-                                            <strong>1</strong> x <span class="price text-primary">$29.99</span>
-                                        </div><!-- end product-details -->
-                                    </li><!-- end item -->*@
+                            <a href="shop-single-product-v1.html" class="product-image">
+                                <img src="img/products/bags_07.jpg" alt="Sample Product ">
+                            </a>
+                            <div class="product-details">
+                                <div class="close-icon">
+                                    <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
+                                </div>
+                                <p class="product-name">
+                                    <a href="shop-single-product-v1.html">Lorem Ipsum dolor sit</a>
+                                </p>
+                                <strong>1</strong> x <span class="price text-primary">$29.99</span>
+                            </div><!-- end product-details -->
+                        </li><!-- end item -->*@
                                 </ol>
                             </div>
                         </li>
                         <li>
                             <div class="cart-footer">
-                                <a href="cart.html" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>Ver Carrito</a>
-                                <a href="checkout.html" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Caja</a>
-                            </div>
+                      
+                        <a href="@Url.Action("vercarrito", "VerCarrito")" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>Ver Carrito</a>
+                        <a href="checkout.html" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Caja</a>
+                        </div>
                         </li>
                     </ul>
                 </li>
@@ -171,6 +146,7 @@
                         <img width="160" src="~/img/logocabecera.png" alt="" />
                     </a>
                 </div><!-- end col -->
+
                 <div class="col-sm-7 vertical-align text-center">
                     <form>
                         <div class="row grid-space-1">
@@ -259,41 +235,29 @@
                 <ul class="nav navbar-nav">
                     <!-- Home -->
                     <li class="dropdown active">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Home<i class="fa fa-angle-down ml-5"></i></a>
+                        <li>@Html.ActionLink("Inicio","Index","Home")</li>
+                        @*<a href="Home/index.cshtml" data-toggle="dropdown" class="dropdown-toggle">Inicio<i class="fa fa-angle-down ml-5"></i></a>*@
+                        @*<a href="index.html">Inicio</a>*@
                         <ul role="menu" class="dropdown-menu">
-                            <li><a href="home-v1.html">Home - Version 1</a></li>
+                            @*<li><a href="home-v1.html">Home - Version 1</a></li>
                             <li><a href="home-v2.html">Home - Version 2</a></li>
                             <li><a href="home-v3.html">Home - Version 3</a></li>
                             <li class="active"><a href="home-v4.html">Home - Version 4 <span class="label primary-background">1.1</span></a></li>
                             @*<li><a href="home-v5.html">Home - Version 5 <span class="label primary-background">1.1</span></a></li>
                             <li><a href="home-v6.html">Home - Version 6 <span class="label primary-background">1.2</span></a></li>
                             <li><a href="home-v7.html">Home - Version 7 <span class="label primary-background">1.3</span></a></li>*@
-                        </ul><!-- end ul dropdown-menu -->
+                        </ul>
                     </li><!-- end li dropdown -->
+
+
                     <!-- Features -->
                     <li class="dropdown left">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Features<i class="fa fa-angle-down ml-5"></i></a>
-                        <ul class="dropdown-menu">
-                            @*<li><a href="headers.html">Headers</a></li>
-                            <li><a href="footers.html">Footers</a></li>
-                            <li><a href="sliders.html">Sliders</a></li>*@
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="grid.html">Grid</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-submenu">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Dropdown Level 1</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Dropdown Level</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Dropdown Level 2</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="javascript:void(0);">Dropdown Level</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul><!-- end ul dropdown-menu -->
+                    <li>@Html.ActionLink("Pasteles", "productos", "Productos")</li>
+                       
                     </li><!-- end li dropdown -->
+
+
+
                     <!-- Pages -->
                     <li class="dropdown yamm-fw">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages<i class="fa fa-angle-down ml-5"></i></a>

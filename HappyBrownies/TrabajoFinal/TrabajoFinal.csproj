@@ -246,6 +246,10 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MostrarDetalleProductoController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\RealizarPagoController.cs" />
+    <Compile Include="Controllers\VerCarritoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,6 +260,10 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\MostrarDetalleProducto\mostrardetalleproducto.cshtml" />
+    <Content Include="Views\VerCarrito\vercarrito.cshtml" />
+    <Content Include="Views\RealizarPago\realizarpago.cshtml" />
+    <Content Include="Views\Productos\productos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
