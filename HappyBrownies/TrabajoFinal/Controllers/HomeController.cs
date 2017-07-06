@@ -13,7 +13,9 @@ namespace TrabajoFinal.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var productos = bd.Producto.Take(20).ToList();
+            //ViewBag.clave = id;
+            return View(productos);
         }
         public ActionResult Buscar(string id="")
         {

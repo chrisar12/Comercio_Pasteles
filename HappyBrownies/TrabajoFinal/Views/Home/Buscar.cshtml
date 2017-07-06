@@ -19,37 +19,34 @@
         <div class="row">
             <!-- start sidebar -->
             <div class="col-sm-3">
-
                 <div class="widget">
 
+                    <div class="navbar-vertical">
                         <ul class="nav nav-stacked">
                             <li class="header">
                                 <h6 class="text-uppercase">Categorias <i class="fa fa-navicon pull-right"></i></h6>
                             </li>
+
+                            <li><a href="javascript:void(0);">Linea Regular</a></li>
+                            <li><a href="javascript:void(0);">Linea Sin Azucar</a></li>
+                            <li><a href="javascript:void(0);">Pasteles de Boda</a></li>
                             <li>
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Linea Regular <i class="fa fa-angle-right pull-right"></i>
+                                    Torta de Cumpleaños <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0);">Shirts</a></li>
-                                    <li><a href="javascript:void(0);">Coats & Jackets</a></li>
-                                    <li><a href="javascript:void(0);">Underwear</a></li>
-                                    <li><a href="javascript:void(0);">Sunglasses</a></li>
-                                    <li><a href="javascript:void(0);">Socks</a></li>
-                                    <li><a href="javascript:void(0);">Belts</a></li>
+                                    <li><a href="javascript:void(0);">Cumpleaños Bebes</a></li>
+                                    <li><a href="javascript:void(0);">Cumpleaños Jovenes</a></li>
+                                    <li><a href="javascript:void(0);">Cumpleaños Adultos</a></li>
+
                                 </ul>
                             </li>
 
-                            <li><a href="javascript:void(0);">Kids</a></li>
-                            <li><a href="javascript:void(0);">Fashion</a></li>
 
-                            <li><a href="javascript:void(0);">Bags</a></li>
-                            <li><a href="javascript:void(0);">Shoes</a></li>
-                            <li><a href="javascript:void(0);">HouseHolds</a></li>
 
                         </ul>
+                    </div><!-- end navbar-vertical -->
 
-           
                 </div><!-- end widget -->
 
                 @*<div class="widget">
@@ -120,24 +117,29 @@
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-sm-12 text-left">
-                        <h3 class="title">Resultados: &quot;@ViewBag.clave&quot;</h3>
+                        <h5 class="title">Resultados: &quot;@ViewBag.clave&quot;</h5>
                     </div><!-- end col -->
                 </div><!-- end row -->
 
                 <hr class="spacer-5"><hr class="spacer-20 no-border">
 
-                <div class="row column-3">
-                    <div class="col-sm-6 col-md-4">
-                        
+                <div class="col-sm-12">
+                    <div class="owl-carousel column-3 owl-theme">
+
                         @foreach (var item in Model)
                         {
-                  
+                            var imagen = @item.ProductoImagen.FirstOrDefault();
+                            string img = imagen == null ? "no_disponible.jpg" : imagen.Imagen;
+
+
+
                             <div class="thumbnail store style1">
                                 <div class="header">
-                                    
+
                                     <figure class="layer">
                                         <a href="javascript:void(0);">
-                                            <img class="front" src="~/img/products/men_01.jpg" alt="">
+                                            @*<img width="540" height="374" alt="" src="~/ImgProductos/@img" />*@
+                                            <img class="front" src="~/ImgProductos/@img" alt="">
                                             <img class="back" src="~/img/products/men_02.jpg" alt="">
                                         </a>
                                     </figure>
@@ -150,8 +152,8 @@
                                 <div class="caption">
                                     <h6 class="regular"><a href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto")">@item.Denominacion</a></h6>
                                     <div class="price">
-                                        <small class="amount off">S/@item.Precio </small>
-                                        <span class="amount text-primary">$59.99</span>
+                                        @*<small class="amount off">S/@item.Precio </small>*@
+                                        <span class="amount text-primary">S/@item.Precio</span>
                                     </div>
                                     <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Añadir al carrito</a>
                                 </div><!-- end caption -->
@@ -160,16 +162,8 @@
 
                         }
 
-
-           
-
-
-
-                    </div><!-- end col -->
-
-                  
-
-                </div><!-- end row -->
+                    </div><!-- end owl carousel -->
+                </div><!-- end col -->
 
                 <hr class="spacer-10 no-border">
 
@@ -190,6 +184,7 @@
                 </div><!-- end row -->
             </div><!-- end col -->
         </div><!-- end row -->
+
         <!-- Modal Product Quick View -->
         <div class="modal fade productQuickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">

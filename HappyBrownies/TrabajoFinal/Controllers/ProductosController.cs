@@ -8,10 +8,13 @@ namespace TrabajoFinal.Controllers
 {
     public class ProductosController : Controller
     {
+        private Models.BDPastelEntities1 bd = new Models.BDPastelEntities1();
         // GET: Productos
         public ActionResult productos()
         {
-            return View();
+            var productos = bd.Producto.Take(20).ToList();
+            //ViewBag.clave = id;
+            return View(productos);
         }
     }
 }

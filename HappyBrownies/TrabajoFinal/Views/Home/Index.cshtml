@@ -1,43 +1,49 @@
-﻿<!-- Slider y Nuevos Productos-->
+﻿@model List<TrabajoFinal.Models.Producto>
+
+
+<!-- Slider y Nuevos Productos-->
 <section class="section light-backgorund">
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-md-3">
+
+
                 <div class="navbar-vertical">
                     <ul class="nav nav-stacked">
                         <li class="header">
                             <h6 class="text-uppercase">Categorias <i class="fa fa-navicon pull-right"></i></h6>
                         </li>
+                      
+                        <li><a href="javascript:void(0);">Linea Regular</a></li>
+                        <li><a href="javascript:void(0);">Linea Sin Azucar</a></li>
+                        <li><a href="javascript:void(0);">Pasteles de Boda</a></li>
                         <li>
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Linea Regular <i class="fa fa-angle-right pull-right"></i>
+                                Torta de Cumpleaños <i class="fa fa-angle-right pull-right"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0);">Shirts</a></li>
-                                <li><a href="javascript:void(0);">Coats & Jackets</a></li>
-                                <li><a href="javascript:void(0);">Underwear</a></li>
-                                <li><a href="javascript:void(0);">Sunglasses</a></li>
-                                <li><a href="javascript:void(0);">Socks</a></li>
-                                <li><a href="javascript:void(0);">Belts</a></li>
+                                <li><a href="javascript:void(0);">Cumpleaños Bebes</a></li>
+                                <li><a href="javascript:void(0);">Cumpleaños Jovenes</a></li>
+                                <li><a href="javascript:void(0);">Cumpleaños Adultos</a></li>
+                 
                             </ul>
                         </li>
-                        
-                        <li><a href="javascript:void(0);">Kids</a></li>
-                        <li><a href="javascript:void(0);">Fashion</a></li>
-                     
-                        <li><a href="javascript:void(0);">Bags</a></li>
-                        <li><a href="javascript:void(0);">Shoes</a></li>
-                        <li><a href="javascript:void(0);">HouseHolds</a></li>
+                       
+                
                        
                     </ul>
                 </div><!-- end navbar-vertical -->
 
                 <hr class="spacer-20 no-border">
 
+
+                <!-- MAS VENDIDOS -->
                 <div class="widget hidden-xs">
                     <h6 class="subtitle text-uppercase">Más Vendidos </h6>
 
-                    <ul class="items">
+                @foreach (var item in Model)
+                {
+                <ul class="items">
                         <li>
                             <a href="shop-single-product-v1.html" class="product-image">
                                 <img src="~/img/products/men_01.jpg" alt="Sample Product ">
@@ -57,32 +63,22 @@
                             </div>
                         </li><!-- end item -->
                         <li>
-                            <a href="shop-single-product-v1.html" class="product-image">
-                                <img src="~/img/products/women_02.jpg" alt="Sample Product ">
-                            </a>
-                            <div class="product-details">
-                                <p class="product-name">
-                                    <a href="shop-single-product-v1.html">Printed Summer Dress</a>
-                                </p>
-                                <span class="price text-primary">$29.99</span>
-                                <div class="rate text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
+                           
                         </li><!-- end item -->
                         
               
                
                     </ul>
+                }
                 </div><!-- end widget -->
             </div><!-- end col -->
 
 
+
+            <!-- SLIDER Y NUEVOS PRODUCTOS -->
+
             <div class="col-sm-8 col-md-9">
+                <!-- SLIDER-->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="owl-carousel slider owl-theme">
@@ -107,37 +103,51 @@
 
                 <hr class="spacer-20 no-border">
 
+                <!-- NUEVOS PRODUCTOS -->
+
                 <div class="row">
                     <div class="col-sm-12">
                         <h6 class="ml-5 mb-20 text-uppercase"><span class="text-primary">Nuevos</span> Pasteles</h6>
                     </div><!-- end col -->
+
                     <div class="col-sm-12">
                         <div class="owl-carousel column-3 owl-theme">
-                            <div class="item">
-                                <div class="thumbnail store style1">
-                                    <div class="header">
-                                        <figure class="layer">
-                                            <a href="javascript:void(0);">
-                                                <img src="~/img/products/technology_03.jpg" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="icons">
-                                            <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-heart-o"></i></a>
-                                            <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-gift"></i></a>
-                                            <a class="icon semi-circle" href="javascript:void(0);" data-toggle="modal" data-target=".productQuickView"><i class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="caption">
-                                        <h6 class="regular"><a href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto")">Pastel Chocolate</a></h6>
-                                        <div class="price">
-                                            <small class="amount off">$68.99</small>
-                                            <span class="amount text-primary">$59.99</span>
-                                        </div>
-                                        <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Añadir al carrito</a>
-                                    </div><!-- end caption -->
-                                </div><!-- end thumbnail -->
-                            </div><!-- end item -->
-                            <div class="item">
+
+                            <!-- PRIMER PRODUCTO-->
+
+                       
+                                
+                                @foreach (var item in Model)
+                                {
+                                    <div class="item">
+                                        <div class="thumbnail store style1">
+                                            <div class="header">
+                                                
+                                                        <img width="540" height="374" src="~/img/products/technology_03.jpg" alt="">
+                                                    
+                                                <div class="icons">
+                                                    <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-heart-o"></i></a>
+                                                    <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-gift"></i></a>
+                                                    <a class="icon semi-circle" href="javascript:void(0);" data-toggle="modal" data-target=".productQuickView"><i class="fa fa-search"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="caption">
+                                                <h6 class="regular"><a href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto")">Pastel Chocolate</a></h6>
+                                                <div class="price">
+                                                    <small class="amount off">$68.99</small>
+                                                    <span class="amount text-primary">$59.99</span>
+                                                </div>
+                                                <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Añadir al carrito</a>
+                                            </div><!-- end caption -->
+
+                                        </div><!-- end thumbnail -->
+                                    </div><!-- end item -->
+                                }
+
+
+                                
+
+                            @*<div class="item">
                                 <div class="thumbnail store style1">
                                     <div class="header">
                                         <figure class="layer">
@@ -178,7 +188,7 @@
                                         <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Add to cart</a>
                                     </div><!-- end caption -->
                                 </div><!-- end thumbnail -->
-                            </div><!-- end item -->
+                            </div><!-- end item -->*@
                             
                        
                         </div><!-- end owl carousel -->

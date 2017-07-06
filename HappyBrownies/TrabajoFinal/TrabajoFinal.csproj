@@ -121,6 +121,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="ImgProductos\20170706124710.PNG" />
+    <Content Include="ImgProductos\20170706125303.PNG" />
+    <Content Include="ImgProductos\20170706125312.PNG" />
+    <Content Include="ImgProductos\no_disponible.jpg" />
     <Content Include="img\banners\banner_01.jpg" />
     <Content Include="img\banners\banner_02.jpg" />
     <Content Include="img\banners\banner_03.jpg" />
@@ -231,6 +235,7 @@
     <Content Include="js\gmaps.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
     <Content Include="js\jquery.downCount.js" />
+    <Content Include="js\jquery.form.min.js" />
     <Content Include="js\jquery.sticky.js" />
     <Content Include="js\main.js" />
     <Content Include="js\nouislider.min.js" />
@@ -274,6 +279,7 @@
     <Content Include="Areas\Admin\Views\Producto\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Producto\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Producto\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Producto\Adjuntos.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -286,6 +292,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductoController.cs" />
+    <Compile Include="Areas\Admin\Models\ResponseModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MostrarDetalleProductoController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
@@ -343,9 +350,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
