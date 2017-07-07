@@ -53,21 +53,22 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li class="active">
-                                    <a href="@Url.Action("inicio","pagina")"><i class="fa fa-home"></i>Inicio</a></li>
+                                    <a href="@Url.Action("inicio","pagina")"><i class="fa fa-home"></i>Inicio</a>
+                                </li>
                                 <li>
                                     <a><i class="fa fa-edit"></i> Formularios <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="form_general.html">General</a></li>
                                         <li><a href="form_advanced.html">Componentes</a></li>
-                                        <li><a href="form_validation.html">Validar</a></li>                             
+                                        <li><a href="form_validation.html">Validar</a></li>
                                         <li><a href="form_upload.html">Actualizar</a></li>
-                                     
+
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-shopping-cart" aria-hidden="true"></i> E-commerce <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Index","Producto")">Productos</a></li>                                      
+                                        <li><a href="@Url.Action("Index","Producto")">Productos</a></li>
                                         <li><a href="orders.html">Pedidos</a></li>
                                         <li><a href="customers.html">Clientes</a></li>
                                     </ul>
@@ -80,8 +81,6 @@
                     </div>
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
-                
-
                     <!-- /menu footer buttons -->
                 </div>
 
@@ -99,7 +98,7 @@
                             <!-- mi cuenta -->
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/user-card-1.jpg" alt=""><span class="top_menu_user_name">Eric Smith</span>
+                                    <img src="~/ImgProductos/no_disponible.jpg" alt=""><span class="top_menu_user_name">Admin</span>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right profile-dropdown">
@@ -123,12 +122,12 @@
             </div>
             <!-- /top navigation -->
             <!-- page content -->
-          
 
-            
-                        @RenderBody()
-                       
-           
+
+
+            @RenderBody()
+
+
             <!-- /page content -->
             <!-- footer content -->
             <footer>
@@ -144,9 +143,6 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/js/jquery.form.min.js"></script>
-
-    @RenderSection("scripts", false)
-
 
     <!-- jQuery -->
     <script src="~/vendors/jquery/dist/jquery.min.js"></script>
@@ -187,15 +183,17 @@
     <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/js/custom.js"></script>
-
-
     <script src="~/js/highcharts.js"></script>
     <script src="~/js//exporting.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+
+
 </body>
 </html>
 
 
-  
 
 
 
@@ -205,6 +203,7 @@
 
 
 
-   
+
+
 
 

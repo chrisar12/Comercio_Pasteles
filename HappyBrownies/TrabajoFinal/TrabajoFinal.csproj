@@ -122,9 +122,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="ImgProductos\20170706124710.PNG" />
-    <Content Include="ImgProductos\20170706125303.PNG" />
-    <Content Include="ImgProductos\20170706125312.PNG" />
     <Content Include="ImgProductos\no_disponible.jpg" />
     <Content Include="img\banners\banner_01.jpg" />
     <Content Include="img\banners\banner_02.jpg" />

@@ -147,6 +147,8 @@ namespace TrabajoFinal.Areas.Admin.Controllers
             return PartialView(db.ProductoImagen.Where(x => x.ProductoId == ProductoId).ToList());
         }
 
+
+
         public JsonResult EliminarImagen(int ProductoImagenId)
         {
             var rpt = new Models.ResponseModel()
@@ -164,6 +166,7 @@ namespace TrabajoFinal.Areas.Admin.Controllers
 
             return Json(rpt);
         }
+
 
 
         protected override void Dispose(bool disposing)

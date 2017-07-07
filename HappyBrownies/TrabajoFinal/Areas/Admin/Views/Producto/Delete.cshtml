@@ -4,61 +4,81 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="right_col bg_fff" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+  
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Producto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Denominacion)
-        </dt>
+        <h3>Desea Eliminar Este Producto?</h3>
+        <div>
+            <h4>Producto</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Denominacion)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Denominacion)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Denominacion)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Precio)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Precio)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Existencias)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Existencias)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Existencias)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Existencias)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Activo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Activo)
+                </dd>
 
-    </dl>
+            </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-group">
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <button type="submit" value="Delete" class="btn btn-info">
+                                <i class="fa fa-check"></i> Eliminar
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-info">
+                                <i class="fa fa-check"></i> @Html.ActionLink("Volver Lista", "Index")
+                            </button>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+           
+
+            }
         </div>
-    }
+</div>
 </div>
