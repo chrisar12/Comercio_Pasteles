@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from 104.237.3.115/altena/src/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Jun 2017 15:00:05 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Altena | dashboard</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="images/favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="~/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/vendors/iCheck/skins/square/blue.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/css/custom.min.css" rel="stylesheet">
+
+
+ 
+
+</head>
+
+<body class="nav-md">
+    <div class="color_pick_wrap">
+     
+    </div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa fa-adjust"></i> <span class="logo-f">Alte<span class="logo-s">na</span></span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu quick search -->
+                    <div class="profile clearfix">
+                        <form class="sidebar-search  " action="http://104.237.3.115/altena/src/page_general_search_3.html" method="POST">
+                            <div class="input-group sidemenu-search-div">
+                                <input type="text" class="form-control side-menu-search" placeholder="Search...">
+                                <span class="input-group-btn" style="">
+                                    <a href="javascript:;" class="btn submit sidemenu-search-icon">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /menu quick search -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li class="active">
+                                    <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: block;">
+                                        <li class="current-page"><a href="index.html">Dashboard 1</a></li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="form_general.html">General</a></li>
+                                        <li><a href="form_advanced.html">Advanced Components</a></li>
+                                        <li><a href="form_validation.html">Validation</a></li>
+                                        <li><a href="form_wizards.html">Wizard</a></li>
+                                        <li><a href="form_upload.html">Upload</a></li>
+                                        <li><a href="form_cropping.html">Cropping</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-shopping-cart" aria-hidden="true"></i> E-commerce <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="product_list.html">Product List</a></li>
+                                        <li><a href="product_edit.html">Product Edit</a></li>
+                                        <li><a href="orders.html">Order List</a></li>
+                                        <li><a href="order_view.html">Order View</a></li>
+                                        <li><a href="customers.html">Customers</a></li>
+                                    </ul>
+                                </li>
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a href="http://104.237.3.115/altena/documentation/index.html" data-toggle="tooltip" data-placement="top" title="Documentation">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen" onclick="toggleFullScreen();">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                    <!-- /menu footer buttons -->
+                </div>
+
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <!-- mi cuenta -->
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/user-card-1.jpg" alt=""><span class="top_menu_user_name">Eric Smith</span>
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right profile-dropdown">
+                                    <li><a href="profile.html"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                                    <li class="top-menu-border-top"><a href="login.html"><i class="fa fa-sign-out"></i>Log Out</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- top navigation -->
+
+
+                        </ul>
+                        </li>
+
+
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col bg_fff" role="main">
+                <!-- top tiles -->
+                <div class="row top_tiles">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats tile-white bg-blue-sky">
+                            <div class="icon"><i class="fa fa-shopping-cart"></i></div>
+                            <div class="count">349</div>
+                            <h3>ORDERS</h3>
+                            <p>+15% From previous month</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats tile-white bg-purple">
+                            <div class="icon"><i class="fa fa-comments-o"></i></div>
+                            <div class="count">58,880 $</div>
+                            <h3>INCOM</h3>
+                            <p>+25% From previous month</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats tile-white bg-red">
+                            <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+                            <div class="count">15,790</div>
+                            <h3>VISITORS</h3>
+                            <p>+25% From previous month</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats tile-white bg-blue">
+                            <div class="icon"><i class="fa fa-check-square-o"></i></div>
+                            <div class="count">3,271</div>
+                            <h3>CUSTOMERS</h3>
+                            <p>+15% From previous month</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /top tiles -->
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="dashboard_graph border_box">
+
+                            <div class="row x_title">
+                                <div class="col-md-6">
+                                    <h4>Product Sales <small>daily stats...</small></h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="reportrange" class="pull-right" style="cursor: pointer; padding: 5px 10px; border: 1px solid #e7ecf1;">
+                                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div id="chart_plot_01" class="demo-placeholder"></div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 mt25">
+                                <div class="animated flipInX col-md-3 col-sm-3 col-xs-12">
+                                    <div>
+                                        <p>Revenue <span class="font13">+ 80%</span></p>
+                                        <p></p>
+                                        <div class="">
+                                            <div class="progress progress_sm" style="width: 90%;">
+                                                <div class="progress-bar bg-purple" role="progressbar" data-transitiongoal="80" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="animated flipInX col-md-3 col-sm-3 col-xs-12">
+                                    <div>
+                                        <p>Tax <span class="font13">+ 20%</span></p>
+                                        <div class="">
+                                            <div class="progress progress_sm" style="width: 90%;">
+                                                <div class="progress-bar bg-blue" role="progressbar" data-transitiongoal="20" style="width: 20%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="animated flipInX col-md-3 col-sm-3 col-xs-12">
+                                    <div>
+                                        <p>Shipment <span class="font13">+ 50%</span></p>
+                                        <div class="">
+                                            <div class="progress progress_sm" style="width: 90%;">
+                                                <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="50" style="width: 50%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="animated flipInX col-md-3 col-sm-3 col-xs-12">
+                                    <div>
+                                        <p>Orders <span class="font13">+ 50%</span></p>
+                                        <div class="">
+                                            <div class="progress progress_sm" style="width: 90%;">
+                                                <div class="progress-bar bg-blue-sky" role="progressbar" data-transitiongoal="50" style="width: 50%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+
+                <div class="row">
+
+
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="x_panel tile border_box">
+                            <div class="x_title">
+                                <h4>Last Orders</h4>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table vertical-mid margin0">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Product</th>
+                                            <th>Purchased</th>
+                                            <th>Tracking ID</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <img src="images/macmouse.png" alt="mac_mouse">
+                                            </td>
+                                            <td>mac Mouse</td>
+                                            <td>22/04/2016</td>
+
+                                            <td>38SA3C9SC</td>
+                                            <td>
+                                                <span class="label label-default font-weight-100">Failed</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/iphone.png" alt="iPhone">
+                                            </td>
+                                            <td>iPhone</td>
+                                            <td>15/07/2016</td>
+
+                                            <td>78SA3C9SC</td>
+                                            <td>
+                                                <span class="label label-success font-weight-100">Paid</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/imac.png" alt="iMac">
+                                            </td>
+                                            <td>iMac</td>
+                                            <td>22/08/2016</td>
+
+                                            <td>1BYC854D84</td>
+                                            <td>
+                                                <span class="label label-success font-weight-100">Paid</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/applewatch.png" alt="apple_watch">
+                                            </td>
+                                            <td>apple Watch</td>
+                                            <td>10/07/2016</td>
+
+
+                                            <td>58BC85SD84</td>
+                                            <td>
+                                                <span class="label label-warning font-weight-100">Pending</span>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    © 2017 Altena Template by <a href="https://lifeinsys.com/">LifeInSYS</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/vendors/Flot/jquery.flot.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="~/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="~/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="~/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/vendors/moment/min/moment.min.js"></script>
+    <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="~/js/custom.js"></script>
+
+
+    <script src="../../../code.highcharts.com/highcharts.js"></script>
+    <script src="../../../code.highcharts.com/modules/exporting.js"></script>
+</body>
+</html>
