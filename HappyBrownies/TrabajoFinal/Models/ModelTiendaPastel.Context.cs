@@ -25,10 +25,12 @@ namespace TrabajoFinal.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<PedidoDetalle> PedidoDetalle { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
+        public virtual DbSet<ProductoCategoria> ProductoCategoria { get; set; }
         public virtual DbSet<ProductoImagen> ProductoImagen { get; set; }
     }
 }

@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDPastelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDPastelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="CategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Denominacion" Type="varchar" MaxLength="80" />
+        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="ClienteId" />
@@ -47,6 +54,14 @@
           <Property Name="Existencias" Type="int" Nullable="false" />
           <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="ProductoCategoria">
+          <Key>
+            <PropertyRef Name="ProductoCategoriaId" />
+          </Key>
+          <Property Name="ProductoCategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="CategoriaId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ProductoImagen">
           <Key>
             <PropertyRef Name="ProductoImagenId" />
@@ -57,7 +72,7 @@
           <Property Name="Titulo" Type="varchar" MaxLength="255" />
           <Property Name="Descripcion" Type="varchar(max)" />
         </EntityType>
-        <Association Name="FK__Pedido__ClienteI__2D27B809">
+        <Association Name="FK__Pedido__ClienteI__0C85DE4D">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
           <ReferentialConstraint>
@@ -69,7 +84,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PedidoDet__Pedid__300424B4">
+        <Association Name="FK__PedidoDet__Pedid__0F624AF8">
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
           <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -81,7 +96,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PedidoDet__Produ__30F848ED">
+        <Association Name="FK__PedidoDet__Produ__10566F31">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +108,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoI__Produ__286302EC">
+        <Association Name="FK__ProductoC__Categ__160F4887">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="ProductoCategoria" Type="Self.ProductoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="CategoriaId" />
+            </Principal>
+            <Dependent Role="ProductoCategoria">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoC__Produ__151B244E">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="ProductoCategoria" Type="Self.ProductoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="ProductoCategoria">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoI__Produ__07C12930">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoImagen" Type="Self.ProductoImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,46 +145,96 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDPastelModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PedidoDetalle" EntityType="Self.PedidoDetalle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoCategoria" EntityType="Self.ProductoCategoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductoImagen" EntityType="Self.ProductoImagen" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Pedido__ClienteI__2D27B809" Association="Self.FK__Pedido__ClienteI__2D27B809">
+          <AssociationSet Name="FK__Pedido__ClienteI__0C85DE4D" Association="Self.FK__Pedido__ClienteI__0C85DE4D">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Pedido" EntitySet="Pedido" />
           </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__Pedid__300424B4" Association="Self.FK__PedidoDet__Pedid__300424B4">
+          <AssociationSet Name="FK__PedidoDet__Pedid__0F624AF8" Association="Self.FK__PedidoDet__Pedid__0F624AF8">
             <End Role="Pedido" EntitySet="Pedido" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__Produ__30F848ED" Association="Self.FK__PedidoDet__Produ__30F848ED">
+          <AssociationSet Name="FK__PedidoDet__Produ__10566F31" Association="Self.FK__PedidoDet__Produ__10566F31">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoI__Produ__286302EC" Association="Self.FK__ProductoI__Produ__286302EC">
+          <AssociationSet Name="FK__ProductoC__Categ__160F4887" Association="Self.FK__ProductoC__Categ__160F4887">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="ProductoCategoria" EntitySet="ProductoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoC__Produ__151B244E" Association="Self.FK__ProductoC__Produ__151B244E">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoCategoria" EntitySet="ProductoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoI__Produ__07C12930" Association="Self.FK__ProductoI__Produ__07C12930">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoImagen" EntitySet="ProductoImagen" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDPastelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BDPastelEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="BDPastelModel.Categoria" />
+          <EntitySet Name="Cliente" EntityType="BDPastelModel.Cliente" />
+          <EntitySet Name="Pedido" EntityType="BDPastelModel.Pedido" />
+          <EntitySet Name="PedidoDetalle" EntityType="BDPastelModel.PedidoDetalle" />
+          <EntitySet Name="Producto" EntityType="BDPastelModel.Producto" />
+          <EntitySet Name="ProductoCategoria" EntityType="BDPastelModel.ProductoCategoria" />
+          <EntitySet Name="ProductoImagen" EntityType="BDPastelModel.ProductoImagen" />
+          <AssociationSet Name="FK__ProductoC__Categ__160F4887" Association="BDPastelModel.FK__ProductoC__Categ__160F4887">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="ProductoCategoria" EntitySet="ProductoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pedido__ClienteI__0C85DE4D" Association="BDPastelModel.FK__Pedido__ClienteI__0C85DE4D">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PedidoDet__Pedid__0F624AF8" Association="BDPastelModel.FK__PedidoDet__Pedid__0F624AF8">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PedidoDet__Produ__10566F31" Association="BDPastelModel.FK__PedidoDet__Produ__10566F31">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoC__Produ__151B244E" Association="BDPastelModel.FK__ProductoC__Produ__151B244E">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoCategoria" EntitySet="ProductoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoI__Produ__07C12930" Association="BDPastelModel.FK__ProductoI__Produ__07C12930">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoImagen" EntitySet="ProductoImagen" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaId" />
+          </Key>
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Denominacion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProductoCategoria" Relationship="BDPastelModel.FK__ProductoC__Categ__160F4887" FromRole="Categoria" ToRole="ProductoCategoria" />
+        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="ClienteId" />
           </Key>
           <Property Name="ClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Clave" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Celular" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK__Pedido__ClienteI__2D27B809" FromRole="Cliente" ToRole="Pedido" />
+          <NavigationProperty Name="Pedido" Relationship="BDPastelModel.FK__Pedido__ClienteI__0C85DE4D" FromRole="Cliente" ToRole="Pedido" />
         </EntityType>
         <EntityType Name="Pedido">
           <Key>
@@ -154,9 +243,9 @@
           <Property Name="PedidoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ClienteId" Type="Int32" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Estado" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__Pedido__ClienteI__2D27B809" FromRole="Pedido" ToRole="Cliente" />
-          <NavigationProperty Name="PedidoDetalle" Relationship="Self.FK__PedidoDet__Pedid__300424B4" FromRole="Pedido" ToRole="PedidoDetalle" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="BDPastelModel.FK__Pedido__ClienteI__0C85DE4D" FromRole="Pedido" ToRole="Cliente" />
+          <NavigationProperty Name="PedidoDetalle" Relationship="BDPastelModel.FK__PedidoDet__Pedid__0F624AF8" FromRole="Pedido" ToRole="PedidoDetalle" />
         </EntityType>
         <EntityType Name="PedidoDetalle">
           <Key>
@@ -166,21 +255,32 @@
           <Property Name="PedidoId" Type="Int32" Nullable="false" />
           <Property Name="ProductoId" Type="Int32" Nullable="false" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK__PedidoDet__Pedid__300424B4" FromRole="PedidoDetalle" ToRole="Pedido" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__PedidoDet__Produ__30F848ED" FromRole="PedidoDetalle" ToRole="Producto" />
+          <NavigationProperty Name="Pedido" Relationship="BDPastelModel.FK__PedidoDet__Pedid__0F624AF8" FromRole="PedidoDetalle" ToRole="Pedido" />
+          <NavigationProperty Name="Producto" Relationship="BDPastelModel.FK__PedidoDet__Produ__10566F31" FromRole="PedidoDetalle" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
             <PropertyRef Name="ProductoId" />
           </Key>
           <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Denominacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Precio" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="Denominacion" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
           <Property Name="Existencias" Type="Int32" Nullable="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PedidoDetalle" Relationship="Self.FK__PedidoDet__Produ__30F848ED" FromRole="Producto" ToRole="PedidoDetalle" />
-          <NavigationProperty Name="ProductoImagen" Relationship="Self.FK__ProductoI__Produ__286302EC" FromRole="Producto" ToRole="ProductoImagen" />
+          <NavigationProperty Name="PedidoDetalle" Relationship="BDPastelModel.FK__PedidoDet__Produ__10566F31" FromRole="Producto" ToRole="PedidoDetalle" />
+          <NavigationProperty Name="ProductoCategoria" Relationship="BDPastelModel.FK__ProductoC__Produ__151B244E" FromRole="Producto" ToRole="ProductoCategoria" />
+          <NavigationProperty Name="ProductoImagen" Relationship="BDPastelModel.FK__ProductoI__Produ__07C12930" FromRole="Producto" ToRole="ProductoImagen" />
+        </EntityType>
+        <EntityType Name="ProductoCategoria">
+          <Key>
+            <PropertyRef Name="ProductoCategoriaId" />
+          </Key>
+          <Property Name="ProductoCategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="BDPastelModel.FK__ProductoC__Categ__160F4887" FromRole="ProductoCategoria" ToRole="Categoria" />
+          <NavigationProperty Name="Producto" Relationship="BDPastelModel.FK__ProductoC__Produ__151B244E" FromRole="ProductoCategoria" ToRole="Producto" />
         </EntityType>
         <EntityType Name="ProductoImagen">
           <Key>
@@ -188,14 +288,26 @@
           </Key>
           <Property Name="ProductoImagenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductoId" Type="Int32" Nullable="false" />
-          <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imagen" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__ProductoI__Produ__286302EC" FromRole="ProductoImagen" ToRole="Producto" />
+          <NavigationProperty Name="Producto" Relationship="BDPastelModel.FK__ProductoI__Produ__07C12930" FromRole="ProductoImagen" ToRole="Producto" />
         </EntityType>
-        <Association Name="FK__Pedido__ClienteI__2D27B809">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+        <Association Name="FK__ProductoC__Categ__160F4887">
+          <End Type="BDPastelModel.Categoria" Role="Categoria" Multiplicity="1" />
+          <End Type="BDPastelModel.ProductoCategoria" Role="ProductoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="CategoriaId" />
+            </Principal>
+            <Dependent Role="ProductoCategoria">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pedido__ClienteI__0C85DE4D">
+          <End Type="BDPastelModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="BDPastelModel.Pedido" Role="Pedido" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="ClienteId" />
@@ -205,9 +317,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PedidoDet__Pedid__300424B4">
-          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
-          <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
+        <Association Name="FK__PedidoDet__Pedid__0F624AF8">
+          <End Type="BDPastelModel.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="BDPastelModel.PedidoDetalle" Role="PedidoDetalle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pedido">
               <PropertyRef Name="PedidoId" />
@@ -217,9 +329,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PedidoDet__Produ__30F848ED">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
+        <Association Name="FK__PedidoDet__Produ__10566F31">
+          <End Type="BDPastelModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="BDPastelModel.PedidoDetalle" Role="PedidoDetalle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
               <PropertyRef Name="ProductoId" />
@@ -229,9 +341,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoI__Produ__286302EC">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="ProductoImagen" Type="Self.ProductoImagen" Multiplicity="*" />
+        <Association Name="FK__ProductoC__Produ__151B244E">
+          <End Type="BDPastelModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="BDPastelModel.ProductoCategoria" Role="ProductoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="ProductoCategoria">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoI__Produ__07C12930">
+          <End Type="BDPastelModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="BDPastelModel.ProductoImagen" Role="ProductoImagen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
               <PropertyRef Name="ProductoId" />
@@ -241,89 +365,83 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BDPastelEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-          <EntitySet Name="Pedido" EntityType="Self.Pedido" />
-          <EntitySet Name="PedidoDetalle" EntityType="Self.PedidoDetalle" />
-          <EntitySet Name="Producto" EntityType="Self.Producto" />
-          <EntitySet Name="ProductoImagen" EntityType="Self.ProductoImagen" />
-          <AssociationSet Name="FK__Pedido__ClienteI__2D27B809" Association="Self.FK__Pedido__ClienteI__2D27B809">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Pedido" EntitySet="Pedido" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__Pedid__300424B4" Association="Self.FK__PedidoDet__Pedid__300424B4">
-            <End Role="Pedido" EntitySet="Pedido" />
-            <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__Produ__30F848ED" Association="Self.FK__PedidoDet__Produ__30F848ED">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductoI__Produ__286302EC" Association="Self.FK__ProductoI__Produ__286302EC">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="ProductoImagen" EntitySet="ProductoImagen" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BDPastelModelStoreContainer" CdmEntityContainer="BDPastelEntities1">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="BDPastelModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="BDPastelModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Clave" ColumnName="Clave" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Celular" ColumnName="Celular" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pedido">
             <EntityTypeMapping TypeName="BDPastelModel.Pedido">
               <MappingFragment StoreEntitySet="Pedido">
-                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
-                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PedidoDetalle">
             <EntityTypeMapping TypeName="BDPastelModel.PedidoDetalle">
               <MappingFragment StoreEntitySet="PedidoDetalle">
-                <ScalarProperty Name="PedidoDetalle1" ColumnName="PedidoDetalle" />
-                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
-                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
+                <ScalarProperty Name="PedidoDetalle1" ColumnName="PedidoDetalle" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto">
             <EntityTypeMapping TypeName="BDPastelModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
-                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
-                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Precio" ColumnName="Precio" />
-                <ScalarProperty Name="Existencias" ColumnName="Existencias" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Existencias" ColumnName="Existencias" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductoCategoria">
+            <EntityTypeMapping TypeName="BDPastelModel.ProductoCategoria">
+              <MappingFragment StoreEntitySet="ProductoCategoria">
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="ProductoCategoriaId" ColumnName="ProductoCategoriaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductoImagen">
             <EntityTypeMapping TypeName="BDPastelModel.ProductoImagen">
               <MappingFragment StoreEntitySet="ProductoImagen">
-                <ScalarProperty Name="ProductoImagenId" ColumnName="ProductoImagenId" />
-                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
-                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
-                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="ProductoImagenId" ColumnName="ProductoImagenId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

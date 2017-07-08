@@ -12,28 +12,18 @@ namespace TrabajoFinal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Producto
+    public partial class Categoria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Producto()
+        public Categoria()
         {
-            this.PedidoDetalle = new HashSet<PedidoDetalle>();
             this.ProductoCategoria = new HashSet<ProductoCategoria>();
-            this.ProductoImagen = new HashSet<ProductoImagen>();
         }
     
-        public int ProductoId { get; set; }
+        public int CategoriaId { get; set; }
         public string Denominacion { get; set; }
-        public string Descripcion { get; set; }
-        public decimal Precio { get; set; }
-        public int Existencias { get; set; }
-        public bool Activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PedidoDetalle> PedidoDetalle { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductoCategoria> ProductoCategoria { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductoImagen> ProductoImagen { get; set; }
     }
 }
