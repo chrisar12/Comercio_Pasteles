@@ -118,7 +118,7 @@
                                     <div class="thumbnail store style1">
                                         <div class="header">
 
-                                            <img width="540" height="374" src="~/img/products/technology_03.jpg" alt="">
+                                            <img width="540" height="374" src="~/ImgProductos/no_disponible.jpg" alt="">
 
                                             <div class="icons">
                                                 <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-heart-o"></i></a>
@@ -127,10 +127,10 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <h6 class="regular"><a href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto")">Pastel Chocolate</a></h6>
+                                            <h6 class="regular"><a name="idproducto" href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto")>@item.Denominacion</a></h6>
                                             <div class="price">
-                                                <small class="amount off">$68.99</small>
-                                                <span class="amount text-primary">$59.99</span>
+                                               
+                                                <span class="amount text-primary">@item.Precio</span>
                                             </div>
                                             <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Añadir al carrito</a>
                                         </div><!-- end caption -->

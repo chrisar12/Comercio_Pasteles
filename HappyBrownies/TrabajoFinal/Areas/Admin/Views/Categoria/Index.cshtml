@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TrabajoFinal.Models.Categoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="right_col bg_fff" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <p>
+        </p>
+        <p>
+        </p>
+        <hr />
+        <p>
+         <p>
+
+             <button class="btn btn-info">
+                 <i class="fa fa-check"></i> @Html.ActionLink("Crear Nueva Categoria", "Create")
+             </button>
+           
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Denominacion)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Denominacion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.CategoriaId }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.CategoriaId }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.CategoriaId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>
+</div>

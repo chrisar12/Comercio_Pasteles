@@ -212,6 +212,7 @@
             <div id="navbar-collapse-3" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <!-- Home -->
+                   
                     <li class="dropdown active">
                         <li>@Html.ActionLink("Inicio","Index","Home")</li>
                         @*<a href="Home/index.cshtml" data-toggle="dropdown" class="dropdown-toggle">Inicio<i class="fa fa-angle-down ml-5"></i></a>*@
@@ -314,8 +315,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <h5 class="title">Plus</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit, libero a molestie consectetur, sapien elit lacinia mi.</p>
+                    <h5 class="title">CamPastel</h5>
+                    <p> Somos una empresa especialista en la creación e innovación de repostería, estamos en constante evolución con el fin de estar a la vanguardia y elaborar productos de calidad y contenido nutrimental.</p>
 
                     <hr class="spacer-10 no-border">
 
@@ -329,25 +330,25 @@
                     </ul>
                 </div><!-- end col -->
                 <div class="col-sm-3">
-                    <h5 class="title">My Account</h5>
+                    <h5 class="title">Mi Cuenta</h5>
                     <ul class="list alt-list">
-                        <li><a href="my-account.html"><i class="fa fa-angle-right"></i>My Account</a></li>
-                        <li><a href="wishlist.html"><i class="fa fa-angle-right"></i>Wishlist</a></li>
-                        <li><a href="cart.html"><i class="fa fa-angle-right"></i>My Cart</a></li>
-                        <li><a href="checkout.html"><i class="fa fa-angle-right"></i>Checkout</a></li>
+                        <li><a href="my-account.html"><i class="fa fa-angle-right"></i></a>Mi cuenta</li>
+                        <li><a href="wishlist.html"><i class="fa fa-angle-right"></i>Lista Deseos</a></li>
+                        <li><a href="cart.html"><i class="fa fa-angle-right"></i>Mi Carrito</a></li>
+                        <li><a href="checkout.html"><i class="fa fa-angle-right"></i>Caja</a></li>
                     </ul>
                 </div><!-- end col -->
                 <div class="col-sm-3">
                     <h5 class="title">Information</h5>
                     <ul class="list alt-list">
-                        <li><a href="about-us-v1.html"><i class="fa fa-angle-right"></i>About Us</a></li>
+                        <li><a href="about-us-v1.html"><i class="fa fa-angle-right"></i>Nosotros/a></li>
                         <li><a href="faq.html"><i class="fa fa-angle-right"></i>FAQ</a></li>
-                        <li><a href="privacy-policy.html"><i class="fa fa-angle-right"></i>Privacy Policy</a></li>
-                        <li><a href="contact-v1.html"><i class="fa fa-angle-right"></i>Contact Us</a></li>
+                        <li><a href="privacy-policy.html"><i class="fa fa-angle-right"></i>Politicas de Privacidad</a></li>
+                        <li><a href="contact-v1.html"><i class="fa fa-angle-right"></i>Contactanos</a></li>
                     </ul>
                 </div><!-- end col -->
                 <div class="col-sm-3">
-                    <h5 class="title">Payment Methods</h5>
+                    <h5 class="title">Metodos de Pago</h5>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <ul class="list list-inline">
                         <li class="text-white"><i class="fa fa-cc-visa fa-2x"></i></li>
@@ -362,7 +363,7 @@
 
             <div class="row text-center">
                 <div class="col-sm-12">
-                    <p class="text-sm">&COPY; 2017. Made with <i class="fa fa-heart text-danger"></i> by <a href="javascript:void(0);">DiamondCreative.</a></p>
+                    <p class="text-sm">&COPY; 2017. @Html.ActionLink("CamPastel", "Index", "Home")</p>
                 </div><!-- end col -->
             </div><!-- end row -->
         </div><!-- end container -->
@@ -382,6 +383,7 @@
     <script type="text/javascript" src="~/js/gmaps.js"></script>
     <script type="text/javascript" src="~/js/swiper.min.js"></script>
     <script type="text/javascript" src="~/js/main.js"></script>
+
 
 </body>
 
