@@ -13,6 +13,7 @@ namespace TrabajoFinal.Controllers
         public ActionResult mostrardetalleproducto(int idproducto)
         {
             //var productos = bd.Producto.Where(x => x.ProductoId.Equals(idproducto));
+            ViewBag.Unaimagen = bd.ProductoImagen.Where(x => x.ProductoId.Equals(idproducto)).Take(1);
             ViewBag.listaimagen = bd.ProductoImagen.Where(x => x.ProductoId.Equals(idproducto));
             return View(bd.Producto.Find(idproducto));
         }

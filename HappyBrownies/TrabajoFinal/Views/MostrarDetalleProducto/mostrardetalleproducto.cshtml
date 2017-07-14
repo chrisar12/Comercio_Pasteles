@@ -19,41 +19,35 @@
                        
                         <div class='carousel-inner'>
                         
-                            @*@foreach (var item in ViewBag.listaimagen)
+                            @foreach (var item in ViewBag.Unaimagen)
                             {
-                                var imagen = @item.Imagen();
-                                string img = imagen == null ? "no_disponible.jpg" : imagen.Imagen;*@
+
                             <div class='item active'>
                                 <figure>
-                                    <img src='~/img/logo-big.png' alt='' />
+                                    <img src='~/ImgProductos/@item.Imagen' alt='' />
                                 </figure>
                             </div><!-- end item -->
-                            
+                            }
+
+                                @foreach (var item in ViewBag.listaimagen)
+                                {
                             <div class='item'>
                                 <figure>
-                                    <img src='~/ImgProductos/no_disponible.jpg' alt='' />
+                                    <img src='~/ImgProductos/@item.Imagen' alt='' />
                                 </figure>
                             </div><!-- end item -->
-                            <div class='item'>
-                                <figure>
-                                    <img src='~/ImgProductos/no_disponible.jpg' alt='' />
-                                </figure>
-                            </div><!-- end item -->
-                            <div class='item'>
-                                <figure>
-                                    <img src='~/ImgProductos/no_disponible.jpg' alt='' />
-                                </figure>
-                            </div><!-- end item -->
+                         
                             <!-- Arrows -->
-                          
+                            }
                         </div><!-- end carousel-inner -->
                         <!-- thumbs -->
                         <ol class='carousel-indicators mCustomScrollbar meartlab'>
                             @foreach (var item in ViewBag.listaimagen)
                                     {
                                         var a = 0;
-                                <li data-target='.product-slider' data-slide-to=a class='active'><img src='~/ImgProductos/@item.Imagen' alt='' /></li>
+                                <li data-target='.product-slider' data-slide-to='1' class='active'><img src='~/ImgProductos/@item.Imagen' alt='' /></li>
                                 a++;
+
                             }
                             @*<li data-target='.product-slider' data-slide-to='0' class='active'><img src='~/img/bg_01.jpg' alt='' /></li>
                             <li data-target='.product-slider' data-slide-to='1'><img src='~/ImgProductos/no_disponible.jpg' alt='' /></li>

@@ -127,9 +127,9 @@
                                                 <h6 class="regular"><a name="idproducto" href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto",new { Area="",idproducto=@item.ProductoId})">@item.Denominacion</a></h6>
                                                     <div class="price">
 
-                                                    <span class="amount text-primary">@item.Precio</span>
+                                                    <span class="amount text-primary">S/. @item.Precio</span>
                                                 </div>
-                                                <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Añadir al carrito</a>
+                                                <a onclick="AgregarCarrito(@item.ProductoId,'@item.Denominacion','@item.ProductoImagen.First().Imagen',@item.Precio)" class="btn buy btn-danger" href="#">Añadir al carrito</a>
                                             </div><!-- end caption -->
 
                                         </div><!-- end thumbnail -->
@@ -190,3 +190,5 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
+
+
