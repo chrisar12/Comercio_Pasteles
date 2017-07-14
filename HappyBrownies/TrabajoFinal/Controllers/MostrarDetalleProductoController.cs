@@ -8,12 +8,13 @@ namespace TrabajoFinal.Controllers
 {
     public class MostrarDetalleProductoController : Controller
     {
-       // private Models.BDPastelEntities1 bd = new Models.BDPastelEntities1();
+        private Models.BDPastelEntities1 bd = new Models.BDPastelEntities1();
         // GET: MostrarDetalleProducto
-        public ActionResult mostrardetalleproducto()
+        public ActionResult mostrardetalleproducto(int idproducto)
         {
             //var productos = bd.Producto.Where(x => x.ProductoId.Equals(idproducto));
-            return View();
+            ViewBag.listaimagen = bd.ProductoImagen.Where(x => x.ProductoId.Equals(idproducto));
+            return View(bd.Producto.Find(idproducto));
         }
     }
 }

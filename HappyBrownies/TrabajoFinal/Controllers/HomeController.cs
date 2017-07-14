@@ -14,7 +14,8 @@ namespace TrabajoFinal.Controllers
         public ActionResult Index()
         {
             var productos = bd.Producto.Take(20).ToList();
-           // var categoria = bd.Categoria.ToList();
+           
+            ViewBag.listacategoria = bd.Categoria.ToList(); 
             //ViewBag.clave = id;
             return View(productos);
         }
@@ -22,6 +23,7 @@ namespace TrabajoFinal.Controllers
         {
             //lista de productos
             var productos = bd.Producto.Where(x=>x.Descripcion.Contains(id)).Take(20).ToList();
+            ViewBag.listacategoria = bd.Categoria.ToList();
             ViewBag.clave = id;
             return View(productos);
         }

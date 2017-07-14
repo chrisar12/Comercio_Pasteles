@@ -25,22 +25,14 @@
                         <ul class="nav nav-stacked">
                             <li class="header">
                                 <h6 class="text-uppercase">Categorias <i class="fa fa-navicon pull-right"></i></h6>
+                                @foreach (var item in ViewBag.listacategoria)
+                                {
+                                <li><a href="javascript:void(0);">@item.Denominacion</a></li>
+
+                                }
                             </li>
 
-                            <li><a href="javascript:void(0);">Linea Regular</a></li>
-                            <li><a href="javascript:void(0);">Linea Sin Azucar</a></li>
-                            <li><a href="javascript:void(0);">Pasteles de Boda</a></li>
-                            <li>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Torta de Cumpleaños <i class="fa fa-angle-right pull-right"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0);">Cumpleaños Bebes</a></li>
-                                    <li><a href="javascript:void(0);">Cumpleaños Jovenes</a></li>
-                                    <li><a href="javascript:void(0);">Cumpleaños Adultos</a></li>
-
-                                </ul>
-                            </li>
+                          
 
 
 
@@ -124,25 +116,18 @@
                 <hr class="spacer-5"><hr class="spacer-20 no-border">
 
                 <div class="col-sm-12">
-                    <div class="owl-carousel column-3 owl-theme">
-
-                        @foreach (var item in Model)
-                        {
-                            var imagen = @item.ProductoImagen.FirstOrDefault();
-                            string img = imagen == null ? "no_disponible.jpg" : imagen.Imagen;
 
 
-
+                    @foreach (var item in Model)
+                    {
+                        var imagen = @item.ProductoImagen.FirstOrDefault();
+                        string img = imagen == null ? "no_disponible.jpg" : imagen.Imagen;
+                        <div class="col-md-4">
                             <div class="thumbnail store style1">
                                 <div class="header">
 
-                                    <figure class="layer">
-                                        <a href="javascript:void(0);">
-                                            @*<img width="540" height="374" alt="" src="~/ImgProductos/@img" />*@
-                                            <img class="front" src="~/ImgProductos/@img" alt="">
-                                            <img class="back" src="~/img/products/men_02.jpg" alt="">
-                                        </a>
-                                    </figure>
+                                    <img width="230" height="180" src="~/ImgProductos/@img" alt="">
+
                                     <div class="icons">
                                         <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-heart-o"></i></a>
                                         <a class="icon semi-circle" href="javascript:void(0);"><i class="fa fa-gift"></i></a>
@@ -150,39 +135,38 @@
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h6 class="regular"><a href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto")">@item.Denominacion</a></h6>
-                                    <div class="price">
+                                    <h6 class="regular"><a name="idproducto" href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto",new { Area="",idproducto=@item.ProductoId})">@item.Denominacion</a></h6>
+                                   <div class="price">
                                         @*<small class="amount off">S/@item.Precio </small>*@
                                         <span class="amount text-primary">S/@item.Precio</span>
                                     </div>
                                     <a href="javascript:void(0);"><i class="fa fa-cart-plus mr-5"></i>Añadir al carrito</a>
                                 </div><!-- end caption -->
                             </div><!-- end thumbnail -->
+                    </div>
+                            }
 
 
-                        }
+                        </div><!-- end col -->
 
-                    </div><!-- end owl carousel -->
-                </div><!-- end col -->
+                        <hr class="spacer-10 no-border">
 
-                <hr class="spacer-10 no-border">
-
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <nav>
-                            <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li class="active"><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                            </ul>
-                        </nav>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li class="active"><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
                     </div><!-- end col -->
-                </div><!-- end row -->
-            </div><!-- end col -->
         </div><!-- end row -->
      
 

@@ -13,7 +13,7 @@ namespace TrabajoFinal.Controllers
         public ActionResult productos()
         {
             var productos = bd.Producto.Take(20).ToList();
-            //ViewBag.clave = id;
+            ViewBag.listacategoria = bd.Categoria.ToList();
             return View(productos);
         }
     }
