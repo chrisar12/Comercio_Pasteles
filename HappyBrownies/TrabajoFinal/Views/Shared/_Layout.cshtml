@@ -87,14 +87,14 @@
                                     <div class="line">
                                         <div class="row-fluid">
                                             <div class="span6">TOTAL:</div>
-                                            <div id="totalCarrito" class="span6 align-right size-16">S/. 0.00</div>
+                                            <div id="totalCarrito" class="span6 align-right size-16">TOTAL S/. 0.00</div>
                                         </div>
                                     </div>
                                 </div>
                        
                             <div class="cart-footer">
-                               
-                                <a href="@Url.Action("vercarrito", "VerCarrito")" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Comprar</a>
+                                <a href="@Url.Action("vercarrito", "VerCarrito")" class="pull-left"><i class="fa fa-shopping-basket mr-5"></i>Carrito</a>
+                                <a href="@Url.Action("realizarpago", "RealizarPago")" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Realizar Pago</a>
                                 
                             </div>
          
@@ -323,7 +323,7 @@
                 '           </div>' +
                 '           <div class="desc">' +
                 '                 <strong><a href="product.html">' + this.Denominacion + '</a></strong>' +
-                '                <span class="light-clr qty">Qty: ' + this.Cantidad + ' &nbsp;' +
+                '                <span class="light-clr qty">Cantidad: ' + this.Cantidad + ' &nbsp;' +
                 '                       <a href="#" class="icon-remove-sign" title="Remove Item"></a>' +
                 '                    </span>' +
                 '                </div>' +

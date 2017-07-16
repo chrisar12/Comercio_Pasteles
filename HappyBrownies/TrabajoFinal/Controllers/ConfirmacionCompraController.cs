@@ -6,14 +6,10 @@ using System.Web.Mvc;
 
 namespace TrabajoFinal.Controllers
 {
-    public class VerCarritoController : Controller
+    public class ConfirmacionCompraController : Controller
     {
-        // GET: VerCarrito
-        public ActionResult vercarrito()
-        {
-            return View();
-        }
-        public ActionResult pruebax()
+        // GET: ConfirmacionCompra
+        public ActionResult confirmacioncompra()
         {
             return View();
         }

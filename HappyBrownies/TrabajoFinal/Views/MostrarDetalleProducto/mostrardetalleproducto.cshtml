@@ -45,7 +45,7 @@
                             @foreach (var item in ViewBag.listaimagen)
                                     {
                                         var a = 0;
-                                <li data-target='.product-slider' data-slide-to='1' class='active'><img src='~/ImgProductos/@item.Imagen' alt='' /></li>
+                                <li data-target='.product-slider' data-slide-to='@item.ProductoImagenId' class='active'><img src='~/ImgProductos/@item.Imagen' alt='' /></li>
                                 a++;
 
                             }

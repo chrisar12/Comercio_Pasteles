@@ -126,7 +126,7 @@
 
                                                 <span class="amount text-primary">S/. @item.Precio</span>
                                             </div>
-                                            <a href="javascript:void(0);" class="btn buy btn-danger">Añadir al carrito</a>
+                                            <a onclick="AgregarCarrito(@item.ProductoId,'@item.Denominacion','@item.ProductoImagen.First().Imagen',@item.Precio)" class="btn buy btn-danger" href="#">Añadir al carrito</a>
                                         </div><!-- end caption -->
 
                                     </div><!-- end thumbnail -->

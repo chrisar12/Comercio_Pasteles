@@ -1,472 +1,644 @@
-﻿
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li class="active">Realizar Pago</li>
-                </ul><!-- end breadcrumb -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end breadcrumbs -->
-<!-- start section -->
-<section class="section white-backgorund">
-    <div class="container">
-        <div class="row">
-            <!-- start sidebar -->
-            <div class="col-sm-3">
-                <div class="widget">
-                    <h6 class="subtitle">Mi Cuenta</h6>
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
 
-                    <ul class="list list-unstyled">
-                        <li>
-                            <a href="my-account.html">Mi Cuenta</a>
-                        </li>
-                        <li class="active">
-                            <a href="cart.html">Mi Carrito <span class="text-primary">(3)</span></a>
-                        </li>
-                        <li>
-                            <a href="order-list.html">Mis Pedidos</a>
-                        </li>
-                        <li>
-                            <a href="wishlist.html">Lista de Deseos <span class="text-primary">(5)</span></a>
-                        </li>
-                        <li>
-                            <a href="user-information.html">Configuraciones</a>
-                        </li>
+<head>
+    <title>CamPastel</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Plus E-Commerce Template">
+    <meta name="author" content="Diamant Gjota" />
+    <meta name="keywords" content="plus, html5, css3, template, ecommerce, e-commerce, bootstrap, responsive, creative" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="~/img/logocabecera.png" type="image/x-icon">
+    <link rel="icon" href="~/img/logocabecera.png" type="image/x-icon">
+
+    <!-- css files -->
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/swiper.css" />
+
+    <!-- this is default skin you can replace that with: dark.css, yellow.css, red.css ect -->
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="~/css/default.css" />
+
+
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <div class="topBar inverse">
+        <div class="container">
+            <ul class="list-inline pull-left hidden-sm hidden-xs">
+                <li><span class="text-primary">Alguna Consulta?</span> Llámenos 985012403</li>
+            </ul>
+
+            <ul class="topBarNav pull-right">
+
+                <li class="linkdown">
+                    <a href="@Url.Action("login","login",new {Area="loginadmin"})">
+                        <i class="fa fa-user mr-5"></i>
+                        <span class="hidden-xs">
+                            Admin
+                            <i class="fa fa-angle-down ml-5"></i>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="linkdown">
+                    <a href="javascript:void(0);">
+                        <i class="fa fa-user mr-5"></i>
+                        <span class="hidden-xs">
+                            Mi Cuenta
+                            <i class="fa fa-angle-down ml-5"></i>
+                        </span>
+                    </a>
+                    <ul class="w-150">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Registrarse</a></li>
+                        <li class="divider"></li>
+                        <li><a href="wishlist.html">Lista de Deseos (5)</a></li>
+                        @*<li>@Html.ActionLink("Ver Carrito", "vercarrito", "VerCarrito")</li>*@
+                        <li><a href="checkout.html">Caja</a></li>
                     </ul>
-                </div><!-- end widget -->
+                </li>
+
+             
+            </ul>
+        </div><!-- end container -->
+    </div>
 
 
+    <!-- Seccion Logo -->
+    <div class="middleBar">
+        <div class="container">
+            <div class="row display-table">
+                <div class="col-sm-3 vertical-align text-left hidden-xs">
+                    <a href="javascript:void(0);">
+                        <img width="160" src="~/img/logocabecera.png" alt="" />
+                    </a>
+                </div><!-- end col -->
 
-                <div class="widget">
-                    <h6 class="subtitle">Recientes</h6>
+                <div class="col-sm-7 vertical-align text-center">
+                    <form action="@Url.Action("Buscar","Home")" method="get">
+                        <div class="row grid-space-1">
 
-                    <ul class="items">
-                        <li>
-                            <a href="shop-single-product-v1.html" class="product-image">
-                                <img src="~/img/products/men_01.jpg" alt="Sample Product ">
-                            </a>
-                            <div class="product-details">
-                                <p class="product-name">
-                                    <a href="shop-single-product-v1.html">Pastel de Naranja</a>
-                                </p>
-                                <span class="price text-primary">$19.99</span>
-                                <div class="rate text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </li><!-- end item -->
-                        <li>
-                            <a href="shop-single-product-v1.html" class="product-image">
-                                <img src="~/img/products/women_02.jpg" alt="Sample Product ">
-                            </a>
-                            <div class="product-details">
-                                <p class="product-name">
-                                    <a href="shop-single-product-v1.html">Product name</a>
-                                </p>
-                                <span class="price text-primary">$19.99</span>
-                                <div class="rate text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </li><!-- end item -->
-                    </ul>
 
-                    <hr class="spacer-10 no-border">
-                    <a href="shop-sidebar-left.html" class="btn btn-default btn-block semi-circle btn-md">Todos los Pasteles</a>
-                </div><!-- end widget -->
-            </div><!-- end col -->
-            <!-- end sidebar -->
-
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-sm-12 text-left">
-                        <h2 class="title">Realizar Pago</h2>
-                    </div><!-- end col -->
-                </div><!-- end row -->
-
-                <hr class="spacer-5"><hr class="spacer-20 no-border">
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ul class="nav nav-pills style2 nav-justified">
-                            <li class="active">
-                                <a href="#shopping-cart" data-toggle="tab">
-                                    1. Mis Compras
-                                    <div class="icon">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#billing-info" data-toggle="tab">
-                                    2. Datos Comprador
-                                    <div class="icon">
-                                        <i class="fa fa-home"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#payment" data-toggle="tab">
-                                    3. Método de Pago
-                                    <div class="icon">
-                                        <i class="fa fa-credit-card"></i>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content pills">
-                            <div class="tab-pane active" id="shopping-cart">
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2">Productos</th>
-                                                <th>Precio</th>
-                                                <th>Cantidad</th>
-                                                <th colspan="2">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="shop-single-product-v1.html">
-                                                        <img width="60px" src="~/img/products/men_06.jpg" alt="product">
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <h6 class="regular"><a href="shop-single-product-v1.html">Pastel Chocolate</a></h6>
-                                                    <p>Sed aliquam tincidunt tempus</p>
-                                                </td>
-                                                <td>
-                                                    <span>$59.99</span>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" name="select">
-                                                        <option>1</option>
-                                                        <option>2</option>
-
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <span class="text-primary">$59.99</span>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="close">Ã—</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="shop-single-product-v1.html">
-                                                        <img width="60px" src="~/img/products/shoes_01.jpg" alt="product">
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <h6 class="regular"><a href="shop-single-product-v1.html">Lorem Ipsum</a></h6>
-                                                    <p>Sed aliquam tincidunt tempus</p>
-                                                </td>
-                                                <td>
-                                                    <span>$39.99</span>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" name="select">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <span class="text-primary">$39.99</span>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="close">Ã—</button>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table><!-- end table -->
-                                </div><!-- end table-responsive -->
-                            </div><!-- end tab-pane -->
-
-                            <div class="tab-pane" id="billing-info">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h5 class="thin subtitle">Billing Address</h5>
-                                        <div class="form-group input-group-lg">
-                                            <select class="form-control">
-                                               
-                                                <option value="Austria">Austria</option>
-                                                <option value="Azerbaijan">Azerbaijan</option>
-                                                <option value="Bahamas">Bahamas</option>
-                                                <option value="Bahrain">Bahrain</option>
-                                                <option value="Bangladesh">Bangladesh</option>
-                                                <option value="Barbados">Barbados</option>
-                                                <option value="Belarus">Belarus</option>
-                                           
-                                            </select>
-                                        </div><!-- end form-group -->
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input id="name" type="text" placeholder="Nombre" name="firstname" class="form-control input-md required">
-                                                </div><!-- end form-group -->
-                                                <div class="form-group">
-                                                    <input id="email" type="text" placeholder="Email" name="email" class="form-control input-md required email">
-                                                </div><!-- end form-group -->
-                                            </div><!-- end col -->
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input id="surname" type="text" placeholder="Apellidos" name="lastname" class="form-control input-md required">
-                                                </div><!-- end form-group -->
-                                                <div class="form-group">
-                                                    <input id="phone" type="tel" placeholder="Telefono" name="phone" class="form-control input-md required">
-                                                </div><!-- end form-group -->
-                                            </div>
-                                        </div><!-- end row -->
-                                        <div class="form-group">
-                                            <input id="billingAddress" type="text" placeholder="Direccion 1" name="address1" class="form-control input-md required">
-                                        </div><!-- end form-group -->
-                                        <div class="form-group">
-                                            <input id="billingAddress2" type="text" placeholder="Direccion 2" name="address2" class="form-control input-md required">
-                                        </div><!-- end form-group -->
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input id="city" type="text" placeholder="Distrito" name="city" class="form-control input-md required">
-                                                </div><!-- end form-group -->
-                                            </div><!-- end col -->
-                                          
-                                        </div><!-- end row -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-md-6">
-                                        <h5 class="thin subtitle">Shipping Address</h5>
-                                        <div class="form-group">
-                                            <div class="checkbox-input checkbox-primary" data-toggle="collapse" data-target=".shipto">
-                                                <input id="ship-to-billing-address" class="styled" type="checkbox" checked>
-                                                <label for="ship-to-billing-address">
-                                                    Ship to billing address?
-                                                </label>
-                                            </div><!-- end checkbox-input -->
-                                        </div><!-- end form-group -->
-
-                                      
-                                        <div class="form-group">
-                                            <textarea rows="6" class="form-control" placeholder="Notes about yout order"></textarea>
-                                        </div><!-- end form-group -->
-                                    </div><!-- end col -->
-                                </div><!-- end row -->
-                            </div><!-- end tab-pane -->
-
-                            <div class="tab-pane" id="payment">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h5 class="thin subtitle">Escoge un Metodo de Pago</h5>
-                                        <div class="panel-group accordion style2" id="accordionPayment" role="tablist" aria-multiselectable="true">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="headingPayment1">
-                                                    <h4 class="panel-title">
-                                                        <a class="" data-toggle="collapse" data-parent="#accordionPayment" href="#collapsePayment1" aria-expanded="true" aria-controls="collapsePayment1">
-                                                            <i class="fa fa-credit-card mr-10"></i>Tarjeta de Credito
-                                                        </a>
-                                                    </h4><!-- end panel-title -->
-                                                </div><!-- end panel-heading -->
-                                                <div id="collapsePayment1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPayment1">
-                                                    <div class="panel-body">
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <label class="col-sm-4">Nombre de la Tarjeta <span class="text-danger">*</span></label>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" class="form-control required" name="cardholder" placeholder="">
-                                                                </div><!-- end col -->
-                                                            </div><!-- end row -->
-                                                        </div><!-- end form-group -->
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <label class="col-sm-4">Numero de Tarjeta <span class="text-danger">*</span></label>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" class="form-control required" name="cardnumber" placeholder="">
-                                                                </div><!-- end col -->
-                                                            </div><!-- end row -->
-                                                        </div><!-- end form-group -->
-
-                                                        @*<div class="form-group">
-                                                            <div class="row">
-                                                                <label class="col-sm-4">Payment Types <span class="text-danger">*</span></label>
-                                                                <div class="col-sm-8">
-                                                                    <ul class="list list-inline">
-                                                                        <li><i class="fa fa-cc-visa fa-2x"></i></li>
-                                                                        <li><i class="fa fa-cc-paypal fa-2x"></i></li>
-                                                                        <li class="text-primary"><i class="fa fa-cc-mastercard fa-2x"></i></li>
-                                                                        <li><i class="fa fa-cc-discover fa-2x"></i></li>
-                                                                    </ul>
-                                                                </div><!-- end col -->
-                                                            </div><!-- end row -->
-                                                        </div>*@<!-- end form-group -->
-
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <label class="col-sm-4">Fecha de Vencimiento <span class="text-danger">*</span></label>
-                                                                <div class="col-sm-8">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-6">
-                                                                            <input type="text" name="mm" placeholder="Mes" class="form-control required">
-                                                                        </div><!-- end col -->
-                                                                        <div class="col-sm-6">
-                                                                            <input type="text" name="yy" placeholder="Año" class="form-control required">
-                                                                        </div><!-- end col -->
-                                                                    </div><!-- end row -->
-                                                                </div><!-- end col -->
-                                                            </div><!-- end row -->
-                                                        </div><!-- end form-group -->
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <label class="col-sm-4">CSC <span class="text-danger">*</span></label>
-                                                                
-                                                            </div><!-- end row -->
-                                                        </div><!-- end form-group -->
-                                                       
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-sm-offset-4 col-sm-8 text-right">
-                                                                    <a href="order-confirmation.html" class="btn btn-default btn-md round">Pagar <i class="fa fa-arrow-circle-right ml-5"></i></a>
-                                                                </div><!-- end col -->
-                                                            </div><!-- end row -->
-                                                        </div><!-- end form-group -->
-                                                    </div><!-- end panel-body -->
-                                                </div><!-- end collapse -->
-                                            </div><!-- end panel -->
-
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="headingPayment2">
-                                                    <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionPayment" href="#collapsePayment2" aria-expanded="false" aria-controls="collapsePayment2">
-                                                            <i class="fa fa-paypal mr-10"></i>Pago ContraEntrega
-                                                        </a>
-                                                    </h4>
-                                                </div><!-- end panel-heading -->
-                                                <div id="collapsePayment2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPayment2">
-                                                    <div class="panel-body">
-                                                        <div class="form-group">
-                                                            <div class="checkbox-input checkbox-primary mb-10">
-                                                                <input id="pay-with-paypal" class="styled" type="checkbox">
-                                                                <label for="pay-with-paypal">
-                                                                    <i class="fa fa-cc-paypal mr-5"></i>Pago Contraentrega
-                                                                </label>
-                                                            </div><!-- end checkbox-input -->
-                                                        </div><!-- end form-group -->
-                                                        <div class="form-group">
-                                                            <a href="order-confirmation.html" class="btn btn-default btn-md round">Pagar <i class="fa fa-arrow-circle-right ml-5"></i></a>
-                                                        </div><!-- end form-group -->
-                                                    </div><!-- end panel-body -->
-                                                </div><!-- end collapse -->
-                                            </div><!-- end panel -->
-                                        </div><!-- end panel-group -->
-                                    </div><!-- end col -->
-
-                                    @*<div class="col-md-6">
-                                        <h5 class="thin subtitle">Frequently asked questions</h5>
-                                        <div class="panel-group accordion style1" id="question" role="tablist" aria-multiselectable="true">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="questionOne">
-                                                    <h4 class="panel-title">
-                                                        <a class="" data-toggle="collapse" data-parent="#question" href="#collapseQuestionOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            What payments methods can I use?
-                                                        </a>
-                                                    </h4>
-                                                </div><!-- end panel-heading -->
-                                                <div id="collapseQuestionOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionOne">
-                                                    <div class="panel-body">
-                                                        <p>Lorem ipsum dolor sit amet, link adipisicing elit. Dicta voluptatem, tenetur eum tempore minus libero voluptates eos doloremque. Dolore minima rem consequuntur exercitationem quaerat deleniti repellendus enim necessitatibus mollitia tenetur?</p>
-                                                    </div><!-- end panel-body -->
-                                                </div><!-- end collapse -->
-                                            </div><!-- end panel -->
-
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="questionTwo">
-                                                    <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                            Can I use gift card to pay for my purchase?
-                                                        </a>
-                                                    </h4>
-                                                </div><!-- end panel-heading -->
-                                                <div id="collapseQuestionTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionTwo">
-                                                    <div class="panel-body">
-                                                        <p>Lorem ipsum dolor sit amet, link adipisicing elit. Dicta voluptatem, tenetur eum tempore minus libero voluptates eos doloremque. Dolore minima rem consequuntur exercitationem quaerat deleniti repellendus enim necessitatibus mollitia tenetur?</p>
-                                                    </div><!-- end panel-body -->
-                                                </div><!-- end collapse -->
-                                            </div><!-- end panel -->
-
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="questionThree">
-                                                    <h4 class="panel-title">
-                                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionThree" aria-expanded="false" aria-controls="collapseThree">
-                                                            How long will it take to get my order?
-                                                        </a>
-                                                    </h4>
-                                                </div><!-- end panel-heading -->
-                                                <div id="collapseQuestionThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionThree">
-                                                    <div class="panel-body">
-                                                        <p>Lorem ipsum dolor sit amet, link adipisicing elit. Dicta voluptatem, tenetur eum tempore minus libero voluptates eos doloremque. Dolore minima rem consequuntur exercitationem quaerat deleniti repellendus enim necessitatibus mollitia tenetur?</p>
-                                                    </div><!-- end panel-body -->
-                                                </div><!-- end collapse -->
-                                            </div><!-- end panel -->
-                                        </div><!-- end panel-group -->
-                                    </div><!-- end col -->*@
-                                </div><!-- end row -->
-                            </div><!-- end tab-pane -->
-                        </div><!-- end pills content -->
-
-                        <hr class="spacer-30">
-
-                        <div class="row">
-                            <div class="col-sm-7 text-left">
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <input class="form-control input-md" type="text" placeholder="Codigo Cupon">
-                                    </div>
-                                    <button class="btn btn-default btn-md round" type="submit">Usar</button>
-                                </form>
+                            <div class="col-sm-6">
+                                <input type="text" name="id" class="form-control input-lg" placeholder="Buscar">
                             </div><!-- end col -->
 
-                            <div class="col-sm-5">
-                                <div class="table-responsive">
-                                    <table class="table no-border">
-                                        <tr>
-                                            <th>Subtotal</th>
-                                            <td>$ 98,00</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Impuesto</th>
-                                            <td>Free Shipping</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Total</th>
-                                            <td>$ 98,00</td>
-                                        </tr>
-                                    </table><!-- end table -->
-                                </div><!-- end table-responsive -->
+
+
+
+                            <div class="col-sm-3">
+                                <input type="submit" class="btn btn-default btn-block btn-lg" value="Buscar">
                             </div><!-- end col -->
                         </div><!-- end row -->
-                    </div><!-- end col -->
-                </div><!-- end row -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section>
-<!-- end section -->
+                    </form>
+                </div><!-- end col -->
+
+
+                <div class="col-sm-2 vertical-align header-items hidden-xs">
+                    <div class="header-item mr-5">
+                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Lista de Deseos">
+                            <i class="fa fa-heart-o"></i>
+                            <sub>32</sub>
+                        </a>
+                    </div>
+
+                </div><!-- end col -->
+            </div><!-- end  row -->
+        </div><!-- end container -->
+    </div>
+
+
+    <!-- Menu -->
+    <div class="navbar yamm navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#navbar-collapse-3" class="navbar-toggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="javascript:void(0);" class="navbar-brand visible-xs">
+
+                    <img src="~/img/logo.png" alt="logo">
+                </a>
+            </div>
+            <div id="navbar-collapse-3" class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <!-- Home -->
+
+                    <li class="dropdown active">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <ul role="menu" class="dropdown-menu"></ul>
+                    </li><!-- end li dropdown -->
+                    <!-- Features -->
+                    <li class="dropdown left">
+                    <li>@Html.ActionLink("Pasteles", "productos", "Productos")</li>
+
+                    </li><!-- end li dropdown -->
+                    <!-- elements -->
+                    <li><a href="elements.html">Elements</a></li>
+                    <!-- Collections -->
+
+                </ul>
+
+
+            </div><!-- end navbar collapse -->
+        </div><!-- end container -->
+    </div>
+
+
+
+
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li class="active">Realizar Pago</li>
+                    </ul><!-- end breadcrumb -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end breadcrumbs -->
+    <!-- start section -->
+    <section class="section white-backgorund">
+        <div class="container">
+            <div class="row">
+                <!-- start sidebar -->
+                <div class="col-sm-3">
+                    <div class="widget">
+                        <h6 class="subtitle">Mi Cuenta</h6>
+
+                        <ul class="list list-unstyled">
+                            <li>
+                                <a href="my-account.html">Mi Cuenta</a>
+                            </li>
+                            <li class="active">
+                                <a href="cart.html">Mi Carrito <span class="text-primary">(3)</span></a>
+                            </li>
+                            <li>
+                                <a href="order-list.html">Mis Pedidos</a>
+                            </li>
+                            <li>
+                                <a href="wishlist.html">Lista de Deseos <span class="text-primary">(5)</span></a>
+                            </li>
+                            <li>
+                                <a href="user-information.html">Configuraciones</a>
+                            </li>
+                        </ul>
+                    </div><!-- end widget -->
+
+
+
+                    <div class="widget">
+                        <h6 class="subtitle">Recientes</h6>
+
+                        <ul class="items">
+                            <li>
+                                <a href="shop-single-product-v1.html" class="product-image">
+                                    <img src="~/img/products/men_01.jpg" alt="Sample Product ">
+                                </a>
+                                <div class="product-details">
+                                    <p class="product-name">
+                                        <a href="shop-single-product-v1.html">Pastel de Naranja</a>
+                                    </p>
+                                    <span class="price text-primary">$19.99</span>
+                                    <div class="rate text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </li><!-- end item -->
+                            <li>
+                                <a href="shop-single-product-v1.html" class="product-image">
+                                    <img src="~/img/products/women_02.jpg" alt="Sample Product ">
+                                </a>
+                                <div class="product-details">
+                                    <p class="product-name">
+                                        <a href="shop-single-product-v1.html">Product name</a>
+                                    </p>
+                                    <span class="price text-primary">$19.99</span>
+                                    <div class="rate text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </li><!-- end item -->
+                        </ul>
+
+                        <hr class="spacer-10 no-border">
+                        <a href="shop-sidebar-left.html" class="btn btn-default btn-block semi-circle btn-md">Todos los Pasteles</a>
+                    </div><!-- end widget -->
+                </div><!-- end col -->
+                <!-- end sidebar -->
+
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <h2 class="title">Realizar Pago</h2>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+
+                    <hr class="spacer-5"><hr class="spacer-20 no-border">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="nav nav-pills style2 nav-justified">
+                                <li class="active">
+                                    <a href="#shopping-cart" data-toggle="tab">
+                                        1. Mis Compras
+                                        <div class="icon">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#billing-info" data-toggle="tab">
+                                        2. Datos Comprador
+                                        <div class="icon">
+                                            <i class="fa fa-home"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#payment" data-toggle="tab">
+                                        3. Método de Pago
+                                        <div class="icon">
+                                            <i class="fa fa-credit-card"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content pills">
+                                <div class="tab-pane active" id="shopping-cart">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">Producto</th>
+                                                    <th><div class="align-center">Cantidad</div></th>
+                                                    <th><div class="align-right">Precio</div></th>
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody id="itemcarrito"></tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="stronger">Total:</td>
+                                                <td class="stronger"><div id="totalCompra" class="size-16 align-right">0.00</div></td>
+                                            </tr>
+
+                                        </table><!-- end table -->
+                                    </div><!-- end table-responsive -->
+                                </div><!-- end tab-pane -->
+
+                                <div class="tab-pane" id="billing-info">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="thin subtitle">Billing Address</h5>
+                                            <div class="form-group input-group-lg">
+                                                <select class="form-control">
+
+                                                    <option value="Austria">Austria</option>
+                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                    <option value="Bahamas">Bahamas</option>
+                                                    <option value="Bahrain">Bahrain</option>
+                                                    <option value="Bangladesh">Bangladesh</option>
+                                                    <option value="Barbados">Barbados</option>
+                                                    <option value="Belarus">Belarus</option>
+
+                                                </select>
+                                            </div><!-- end form-group -->
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input id="name" type="text" placeholder="Nombre" name="firstname" class="form-control input-md required">
+                                                    </div><!-- end form-group -->
+                                                    <div class="form-group">
+                                                        <input id="email" type="text" placeholder="Email" name="email" class="form-control input-md required email">
+                                                    </div><!-- end form-group -->
+                                                </div><!-- end col -->
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input id="surname" type="text" placeholder="Apellidos" name="lastname" class="form-control input-md required">
+                                                    </div><!-- end form-group -->
+                                                    <div class="form-group">
+                                                        <input id="phone" type="tel" placeholder="Telefono" name="phone" class="form-control input-md required">
+                                                    </div><!-- end form-group -->
+                                                </div>
+                                            </div><!-- end row -->
+                                            <div class="form-group">
+                                                <input id="billingAddress" type="text" placeholder="Direccion 1" name="address1" class="form-control input-md required">
+                                            </div><!-- end form-group -->
+                                            <div class="form-group">
+                                                <input id="billingAddress2" type="text" placeholder="Direccion 2" name="address2" class="form-control input-md required">
+                                            </div><!-- end form-group -->
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input id="city" type="text" placeholder="Distrito" name="city" class="form-control input-md required">
+                                                    </div><!-- end form-group -->
+                                                </div><!-- end col -->
+
+                                            </div><!-- end row -->
+                                        </div><!-- end col -->
+
+                                        <div class="col-md-6">
+                                            <h5 class="thin subtitle">Shipping Address</h5>
+                                            <div class="form-group">
+                                                <div class="checkbox-input checkbox-primary" data-toggle="collapse" data-target=".shipto">
+                                                    <input id="ship-to-billing-address" class="styled" type="checkbox" checked>
+                                                    <label for="ship-to-billing-address">
+                                                        Ship to billing address?
+                                                    </label>
+                                                </div><!-- end checkbox-input -->
+                                            </div><!-- end form-group -->
+
+
+                                            <div class="form-group">
+                                                <textarea rows="6" class="form-control" placeholder="Notes about yout order"></textarea>
+                                            </div><!-- end form-group -->
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                                </div><!-- end tab-pane -->
+
+                                <div class="tab-pane" id="payment">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="thin subtitle">Escoge un Metodo de Pago</h5>
+                                            <div class="panel-group accordion style2" id="accordionPayment" role="tablist" aria-multiselectable="true">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingPayment1">
+                                                        <h4 class="panel-title">
+                                                            <a class="" data-toggle="collapse" data-parent="#accordionPayment" href="#collapsePayment1" aria-expanded="true" aria-controls="collapsePayment1">
+                                                                <i class="fa fa-credit-card mr-10"></i>Tarjeta de Credito
+                                                            </a>
+                                                        </h4><!-- end panel-title -->
+                                                    </div><!-- end panel-heading -->
+                                                    <div id="collapsePayment1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPayment1">
+                                                        <div class="panel-body">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <label class="col-sm-4">Nombre de la Tarjeta <span class="text-danger">*</span></label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control required" name="cardholder" placeholder="">
+                                                                    </div><!-- end col -->
+                                                                </div><!-- end row -->
+                                                            </div><!-- end form-group -->
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <label class="col-sm-4">Numero de Tarjeta <span class="text-danger">*</span></label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control required" name="cardnumber" placeholder="">
+                                                                    </div><!-- end col -->
+                                                                </div><!-- end row -->
+                                                            </div><!-- end form-group -->
+
+
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <label class="col-sm-4">Fecha de Vencimiento <span class="text-danger">*</span></label>
+                                                                    <div class="col-sm-8">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" name="mm" placeholder="Mes" class="form-control required">
+                                                                            </div><!-- end col -->
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" name="yy" placeholder="Año" class="form-control required">
+                                                                            </div><!-- end col -->
+                                                                        </div><!-- end row -->
+                                                                    </div><!-- end col -->
+                                                                </div><!-- end row -->
+                                                            </div><!-- end form-group -->
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <label class="col-sm-4">CSC <span class="text-danger">*</span></label>
+
+                                                                </div><!-- end row -->
+                                                            </div><!-- end form-group -->
+
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-sm-offset-4 col-sm-8 text-right">
+                                                                        <a id="btnConfirmar" href="@Url.Action("confirmacioncompra", "ConfirmacionCompra")" class="btn btn-default btn-md round">Pagar <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                    </div><!-- end col -->
+                                                                </div><!-- end row -->
+                                                            </div><!-- end form-group -->
+                                                        </div><!-- end panel-body -->
+                                                    </div><!-- end collapse -->
+                                                </div><!-- end panel -->
+
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingPayment2">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionPayment" href="#collapsePayment2" aria-expanded="false" aria-controls="collapsePayment2">
+                                                                <i class="fa fa-paypal mr-10"></i>Pago ContraEntrega
+                                                            </a>
+                                                        </h4>
+                                                    </div><!-- end panel-heading -->
+                                                    <div id="collapsePayment2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPayment2">
+                                                        <div class="panel-body">
+                                                            <div class="form-group">
+                                                                <div class="checkbox-input checkbox-primary mb-10">
+                                                                    <input id="pay-with-paypal" class="styled" type="checkbox">
+                                                                    <label for="pay-with-paypal">
+                                                                        <i class="fa fa-cc-paypal mr-5"></i>Pago Contraentrega
+                                                                    </label>
+                                                                </div><!-- end checkbox-input -->
+                                                            </div><!-- end form-group -->
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-sm-offset-4 col-sm-8 text-right">
+                                                                        <a id="btnConfirmar" href="#" class="btn btn-default btn-md round">Pagar <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                    </div><!-- end col -->
+                                                                </div><!-- end row -->
+                                                            </div><!-- end form-group -->
+                                                        </div><!-- end panel-body -->
+                                                    </div><!-- end collapse -->
+                                                </div><!-- end panel -->
+                                            </div><!-- end panel-group -->
+                                        </div><!-- end col -->
+
+
+                                    </div><!-- end row -->
+                                </div><!-- end tab-pane -->
+                            </div><!-- end pills content -->
+
+                            <hr class="spacer-30">
+
+                   
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+    <!-- end section -->
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5 class="title">CamPastel</h5>
+                    <p> Somos una empresa especialista en la creación e innovación de repostería, estamos en constante evolución con el fin de estar a la vanguardia y elaborar productos de calidad y contenido nutrimental.</p>
+
+                    <hr class="spacer-10 no-border">
+
+                    <ul class="social-icons">
+                        <li class="facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+                        <li class="dribbble"><a href="javascript:void(0);"><i class="fa fa-dribbble"></i></a></li>
+                        <li class="linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="youtube"><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
+                        <li class="behance"><a href="javascript:void(0);"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                </div><!-- end col -->
+                <div class="col-sm-3">
+                    <h5 class="title">Mi Cuenta</h5>
+                    <ul class="list alt-list">
+                        <li><a href="my-account.html"><i class="fa fa-angle-right"></i></a>Mi cuenta</li>
+                        <li><a href="wishlist.html"><i class="fa fa-angle-right"></i>Lista Deseos</a></li>
+                        <li><a href="cart.html"><i class="fa fa-angle-right"></i>Mi Carrito</a></li>
+                        <li><a href="checkout.html"><i class="fa fa-angle-right"></i>Caja</a></li>
+                    </ul>
+                </div><!-- end col -->
+                <div class="col-sm-3">
+                    <h5 class="title">Information</h5>
+                    <ul class="list alt-list">
+                        <li><a href="about-us-v1.html"><i class="fa fa-angle-right"></i>Nosotros/a></li>
+                        <li><a href="faq.html"><i class="fa fa-angle-right"></i>FAQ</a></li>
+                        <li><a href="privacy-policy.html"><i class="fa fa-angle-right"></i>Politicas de Privacidad</a></li>
+                        <li><a href="contact-v1.html"><i class="fa fa-angle-right"></i>Contactanos</a></li>
+                    </ul>
+                </div><!-- end col -->
+                <div class="col-sm-3">
+                    <h5 class="title">Metodos de Pago</h5>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <ul class="list list-inline">
+                        <li class="text-white"><i class="fa fa-cc-visa fa-2x"></i></li>
+                        <li class="text-white"><i class="fa fa-cc-paypal fa-2x"></i></li>
+                        <li class="text-white"><i class="fa fa-cc-mastercard fa-2x"></i></li>
+                        <li class="text-white"><i class="fa fa-cc-discover fa-2x"></i></li>
+                    </ul>
+                </div><!-- end col -->
+            </div><!-- end row -->
+
+            <hr class="spacer-30">
+
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <p class="text-sm">&COPY; 2017. @Html.ActionLink("CamPastel", "Index", "Home")</p>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script type="text/javascript" src="~/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.downCount.js"></script>
+    <script type="text/javascript" src="~/js/nouislider.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.sticky.js"></script>
+    <script type="text/javascript" src="~/js/pace.min.js"></script>
+    <script type="text/javascript" src="~/js/star-rating.min.js"></script>
+    <script type="text/javascript" src="~/js/wow.min.js"></script>
+    @*<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>*@
+    <script type="text/javascript" src="~/js/gmaps.js"></script>
+    <script type="text/javascript" src="~/js/swiper.min.js"></script>
+    <script type="text/javascript" src="~/js/main.js"></script>
+
+
+
+    <script>
+        $(function () {
+            var carrito = localStorage.getItem("carrito");
+            var productos = [];
+            if (carrito != null) {
+                productos = JSON.parse(carrito);
+                CargarProductos(productos);
+            }
+            $("#btnConfirmar").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    url: '@Url.Action("RealizarPedido","RealizarPago")',
+                    data: carrito,
+                    success: function () {
+                        localStorage.removeItem("carrito");
+                        window.location = '@Url.Action("Index","Home")';
+                    }
+                });
+
+            });
+        });
+
+
+
+        function CargarProductos(productos) {
+            var html = '';
+            var total = 0;
+
+            $.each(productos, function () {
+                total += this.Precio * this.Cantidad
+                html += '<tr>' +
+                '            <td class="image"><img src="/ImgProductos/' + this.Imagen + '" alt="" width="124" height="124" /></td>' +
+                '            <td class="desc">' + this.Denominacion + ' &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>' +
+                '            <td class="qty">' +
+                '                <input type="text" class="tiny-size" value="' + this.Cantidad + '" />' +
+                '           </td>' +
+                '           <td class="price">S/. ' + this.Precio + '</td>' +
+                '          </tr>'
+            });
+            $('#itemcarrito').html(html);
+
+            $("#totalCompra").text('S/.' + total);
+        }
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
