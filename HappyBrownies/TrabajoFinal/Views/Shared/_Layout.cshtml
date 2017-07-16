@@ -39,6 +39,15 @@
 
             <ul class="topBarNav pull-right">
 
+                <li class="linkdown">
+                    <a href="@Url.Action("login","login",new {Area="loginadmin"})">
+                        <i class="fa fa-user mr-5"></i>
+                        <span class="hidden-xs">
+                            Admin
+                            <i class="fa fa-angle-down ml-5"></i>
+                        </span>
+                    </a>
+                 </li>
 
                 <li class="linkdown">
                     <a href="javascript:void(0);">
@@ -119,20 +128,6 @@
                             </div><!-- end col -->
 
 
-                            <div class="col-sm-3">
-                                <select class="form-control input-lg" name="category">
-                                    <option value="all">Categorias</option>
-                                    <optgroup label="Mens">
-                                        <option value="shirts">Shirts</option>
-                                        <option value="coats-jackets">Coats & Jackets</option>
-                                        <option value="underwear">Underwear</option>
-                                        <option value="sunglasses">Sunglasses</option>
-                                        <option value="socks">Socks</option>
-                                        <option value="belts">Belts</option>
-                                    </optgroup>
-                                  
-                                </select>
-                            </div><!-- end col -->
 
 
                             <div class="col-sm-3">
@@ -378,7 +373,7 @@
          
 
 
-        }
+        
 
 
     </script>

@@ -286,6 +286,10 @@
     <Content Include="Areas\Admin\Views\Categoria\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Index.cshtml" />
+    <Content Include="Areas\loginadmin\Views\web.config" />
+    <Content Include="Areas\loginadmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\loginadmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\loginadmin\Views\login\login.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -335,6 +339,8 @@
     <Compile Include="Areas\Admin\Controllers\paginaController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductoController.cs" />
     <Compile Include="Areas\Admin\Models\ResponseModel.cs" />
+    <Compile Include="Areas\loginadmin\Controllers\loginController.cs" />
+    <Compile Include="Areas\loginadmin\loginadminAreaRegistration.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MostrarDetalleProductoController.cs" />
@@ -400,6 +406,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\loginadmin\Models\" />
     <Folder Include="Views\Categoria\" />
   </ItemGroup>
   <ItemGroup>

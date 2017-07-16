@@ -1,0 +1,30 @@
+﻿
+<form>
+    <h1>Iniciar Sesion</h1>
+    <div>
+        <input type="text" class="form-control" placeholder="Nombre" required="" />
+    </div>
+    <div>
+        <input type="password" class="form-control" placeholder="Contraseña" required="" />
+    </div>
+    <div class="text-left">
+        <a class="btn btn-default submit" href="@Url.Action("inicio","pagina",new {Area="Admin"})">Entrar</a>
+        <a class="reset_pass" href="#">Olvidaste Contraseña?</a>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="separator">
+
+        <div class="text-center">
+            <a class="btn btn-facebook">Entrar con <i class="fa fa-facebook"></i></a>
+            <a class="btn btn-twitter">Entrar con <i class="fa fa-twitter"></i></a>
+        </div>
+
+        <p class="change_link" style="margin-top: 30px;">
+           Todavia no tiene una cuenta?
+            <a href="#signup" class="to_register"> Registrese! </a>
+        </p>
+
+    </div>
+</form>
