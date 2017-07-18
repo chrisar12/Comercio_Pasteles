@@ -27,7 +27,8 @@
                                 <h6 class="text-uppercase">Categorias <i class="fa fa-navicon pull-right"></i></h6>
                                 @foreach (var item in ViewBag.listacategoria)
                                 {
-                                <li><a href="javascript:void(0);">@item.Denominacion</a></li>
+                               <li><a name="categor"  href="@Url.Action("productos","Productos",new { Area="",categor=@item.Denominacion})">@item.Denominacion</a></li>
+                              
 
                                 }
                             </li>
@@ -60,7 +61,7 @@
                     </div>*@<!-- end widget -->
 
 
-                <div class="widget">
+                @*<div class="widget">
                     <h6 class="subtitle">Mi Carrito</h6>
 
                     <p>Su Carrito</p>
@@ -100,7 +101,7 @@
                     <strong class="text-dark">Cart Subtotal:<span class="pull-right text-primary">$19.99</span></strong>
                     <hr class="spacer-10">
                     <a href="@Url.Action("realizarpago","RealizarPago")" class="btn btn-default semi-circle btn-block btn-md"><i class="fa fa-shopping-basket mr-10"></i>Realizar Pago</a>
-                </div><!-- end widget -->
+                </div><!-- end widget -->*@
 
 
             </div><!-- end col -->

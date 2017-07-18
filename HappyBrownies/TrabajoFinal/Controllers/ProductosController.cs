@@ -10,10 +10,11 @@ namespace TrabajoFinal.Controllers
     {
         private Models.BDPastelEntities1 bd = new Models.BDPastelEntities1();
         // GET: Productos
-        public ActionResult productos()
+        public ActionResult productos(string categor="")
         {
             var productos = bd.Producto.Take(20).ToList();
             ViewBag.listacategoria = bd.Categoria.ToList();
+            ViewBag.categ = categor;
             return View(productos);
         }
     }

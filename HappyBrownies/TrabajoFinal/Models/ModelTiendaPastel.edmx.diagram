@@ -5,19 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="662bf7a4aeee4b5a987f9b3c6cfb83e8" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="BDPastelModel.Categoria" Width="1.5" PointX="0.75" PointY="4" IsExpanded="false" />
-        <EntityTypeShape EntityType="BDPastelModel.Cliente" Width="1.5" PointX="9.75" PointY="1" IsExpanded="false" />
-        <EntityTypeShape EntityType="BDPastelModel.Pedido" Width="1.5" PointX="7.875" PointY="2" IsExpanded="false" />
-        <EntityTypeShape EntityType="BDPastelModel.PedidoDetalle" Width="1.5" PointX="10.25" PointY="3" IsExpanded="false" />
-        <EntityTypeShape EntityType="BDPastelModel.Producto" Width="1.5" PointX="8" PointY="4" IsExpanded="false" />
-        <EntityTypeShape EntityType="BDPastelModel.ProductoCategoria" Width="1.5" PointX="3" PointY="4" IsExpanded="false" />
-        <EntityTypeShape EntityType="BDPastelModel.ProductoImagen" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="false" />
         <EntityTypeShape EntityType="BDPastelModel.Subcategoria" Width="1.5" PointX="3" PointY="6.75" />
         <AssociationConnector Association="BDPastelModel.FK__ProductoC__Categ__75A278F5" />
         <AssociationConnector Association="BDPastelModel.FK__Subcatego__Categ__5AEE82B9" />
         <AssociationConnector Association="BDPastelModel.FK__Pedido__ClienteI__2D27B809" />
         <AssociationConnector Association="BDPastelModel.FK__PedidoDet__Pedid__300424B4" />
         <AssociationConnector Association="BDPastelModel.FK__ProductoC__Produ__74AE54BC" />
+        <EntityTypeShape EntityType="BDPastelModel.Categoria" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.Cliente" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.Pedido" Width="1.5" PointX="3.75" PointY="11" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.PedidoDetalle" Width="1.5" PointX="6" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.Producto" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.ProductoCategoria" Width="1.5" PointX="3" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.ProductoImagen" Width="1.5" PointX="3" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="BDPastelModel.Usuario" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="false" />
         <AssociationConnector Association="BDPastelModel.FK__ProductoC__Categ__160F4887" />
         <AssociationConnector Association="BDPastelModel.FK__Pedido__ClienteI__0C85DE4D" />
         <AssociationConnector Association="BDPastelModel.FK__PedidoDet__Pedid__0F624AF8" />

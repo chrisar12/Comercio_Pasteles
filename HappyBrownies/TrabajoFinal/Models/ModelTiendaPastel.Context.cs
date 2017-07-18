@@ -32,5 +32,6 @@ namespace TrabajoFinal.Models
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<ProductoCategoria> ProductoCategoria { get; set; }
         public virtual DbSet<ProductoImagen> ProductoImagen { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

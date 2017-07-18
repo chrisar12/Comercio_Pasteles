@@ -72,6 +72,14 @@
           <Property Name="Titulo" Type="varchar" MaxLength="255" />
           <Property Name="Descripcion" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsiarioId" />
+          </Key>
+          <Property Name="UsiarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
         <Association Name="FK__Pedido__ClienteI__0C85DE4D">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
@@ -152,6 +160,7 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductoCategoria" EntityType="Self.ProductoCategoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductoImagen" EntityType="Self.ProductoImagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Pedido__ClienteI__0C85DE4D" Association="Self.FK__Pedido__ClienteI__0C85DE4D">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Pedido" EntitySet="Pedido" />
@@ -189,6 +198,7 @@
           <EntitySet Name="Producto" EntityType="BDPastelModel.Producto" />
           <EntitySet Name="ProductoCategoria" EntityType="BDPastelModel.ProductoCategoria" />
           <EntitySet Name="ProductoImagen" EntityType="BDPastelModel.ProductoImagen" />
+          <EntitySet Name="Usuario" EntityType="BDPastelModel.Usuario" />
           <AssociationSet Name="FK__ProductoC__Categ__160F4887" Association="BDPastelModel.FK__ProductoC__Categ__160F4887">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="ProductoCategoria" EntitySet="ProductoCategoria" />
@@ -293,6 +303,14 @@
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Producto" Relationship="BDPastelModel.FK__ProductoI__Produ__07C12930" FromRole="ProductoImagen" ToRole="Producto" />
         </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsiarioId" />
+          </Key>
+          <Property Name="UsiarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="FK__ProductoC__Categ__160F4887">
           <End Type="BDPastelModel.Categoria" Role="Categoria" Multiplicity="1" />
           <End Type="BDPastelModel.ProductoCategoria" Role="ProductoCategoria" Multiplicity="*" />
@@ -365,7 +383,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -442,6 +460,15 @@
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
                 <ScalarProperty Name="ProductoImagenId" ColumnName="ProductoImagenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BDPastelModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="UsiarioId" ColumnName="UsiarioId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

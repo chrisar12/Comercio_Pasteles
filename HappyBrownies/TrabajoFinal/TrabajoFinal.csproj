@@ -123,6 +123,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ImgProductos\no_disponible.jpg" />
+    <Content Include="img\banner.png" />
+    <Content Include="img\banner2.png" />
     <Content Include="img\banners\banner_01.jpg" />
     <Content Include="img\banners\banner_02.jpg" />
     <Content Include="img\banners\banner_03.jpg" />
@@ -148,6 +150,7 @@
     <Content Include="img\categories\cat_02.png" />
     <Content Include="img\categories\cat_03.png" />
     <Content Include="img\categories\cat_04.png" />
+    <Content Include="img\cheese-cake.jpg" />
     <Content Include="img\coming-soon-bg.jpg" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\flags\flag-english.jpg" />
@@ -210,6 +213,9 @@
     <Content Include="img\products\women_03.jpg" />
     <Content Include="img\products\women_04.jpg" />
     <Content Include="img\products\women_05.jpg" />
+    <Content Include="img\slider1.jpg" />
+    <Content Include="img\slider2.jpg" />
+    <Content Include="img\slider3.jpg" />
     <Content Include="img\slider\slider_01.jpg" />
     <Content Include="img\slider\slider_02.jpg" />
     <Content Include="img\slider\slider_03.jpg" />
@@ -385,6 +391,9 @@
       <DependentUpon>ModelTiendaPastel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductoImagen.cs">
+      <DependentUpon>ModelTiendaPastel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
       <DependentUpon>ModelTiendaPastel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

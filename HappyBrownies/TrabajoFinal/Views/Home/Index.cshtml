@@ -15,7 +15,7 @@
                             <h6 class="text-uppercase">Categorias<i class="fa fa-navicon pull-right"></i></h6>
                            @foreach (var item in ViewBag.listacategoria)
                            {
-                              <li><a href="javascript:void(0);">@item.Denominacion</a></li>
+                              <li><a name="categor"  href="@Url.Action("productos","Productos",new { Area="",categor=@item.Denominacion})">@item.Denominacion</a></li>
                                
                            }
                         </li>
@@ -40,7 +40,7 @@
                             </a>
                             <div class="product-details">
                                 <p class="product-name">
-                                    <a href="shop-single-product-v1.html">@item.Denominacion</a>
+                                    <a name="idproducto" href="@Url.Action("mostrardetalleproducto", "MostrarDetalleProducto",new { Area="",idproducto=@item.ProductoId})">@item.Denominacion</a>
                                 </p>
                                 <span class="price text-primary">@item.Precio</span>
                                 <div class="rate text-warning">
@@ -73,16 +73,24 @@
                     <div class="col-sm-12">
                         <div class="owl-carousel slider owl-theme">
                             <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img src="~/img/slider/slider_10.jpg" alt="" />
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
+                               
+                                    <figure>
+                                        <a href="javascript:void(0);">
+                                            <img src="~/img/slider1.jpg" alt="" />
+                                        </a>
+                                    </figure>
+                                </div><!-- end item -->
+                                <div class="item">
+                                    <figure>
+                                        <a href="javascript:void(0);">
+                                            <img src="~/img/slider3.jpg" alt="" />
+                                        </a>
+                                    </figure>
+                                </div><!-- end item -->
                             <div class="item">
                                 <figure>
                                     <a href="javascript:void(0);">
-                                        <img src="~/img/slider/slider_09.jpg" alt="" />
+                                        <img src="~/img/slider2.jpg" alt="" />
                                     </a>
                                 </figure>
                             </div><!-- end item -->
