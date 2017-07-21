@@ -1,0 +1,58 @@
+﻿@model TrabajoFinal.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="right_col bg_fff" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+    
+
+        <h3>Desea Eliminar Este Usuario?</h3>
+        <div>
+            <h4>Usuario</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nickname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nickname)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Clave)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Clave)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <button type="submit" value="Delete" class="btn btn-info">
+                                <i class="fa fa-check"></i> Eliminar
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-info">
+                                <i class="fa fa-check"></i> @Html.ActionLink("Volver Lista", "Index")
+                            </button>
+
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            }
+        </div>
+</div>
+</div>

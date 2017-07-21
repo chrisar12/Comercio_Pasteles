@@ -74,11 +74,11 @@
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
-            <PropertyRef Name="UsiarioId" />
+            <PropertyRef Name="UsuarioId" />
           </Key>
-          <Property Name="UsiarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="usuario" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nickname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="FK__Pedido__ClienteI__0C85DE4D">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
@@ -305,11 +305,11 @@
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
-            <PropertyRef Name="UsiarioId" />
+            <PropertyRef Name="UsuarioId" />
           </Key>
-          <Property Name="UsiarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="usuario1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nickname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__ProductoC__Categ__160F4887">
           <End Type="BDPastelModel.Categoria" Role="Categoria" Multiplicity="1" />
@@ -466,9 +466,9 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="BDPastelModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
-                <ScalarProperty Name="usuario1" ColumnName="usuario" />
-                <ScalarProperty Name="UsiarioId" ColumnName="UsiarioId" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

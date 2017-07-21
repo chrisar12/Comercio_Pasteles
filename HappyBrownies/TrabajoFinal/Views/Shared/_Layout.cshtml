@@ -40,7 +40,7 @@
             <ul class="topBarNav pull-right">
 
                 <li class="linkdown">
-                    <a href="@Url.Action("login","login",new {Area="loginadmin"})">
+                    <a href="@Url.Action("cuentaadmin","CuentaAdmin",new {Area="loginadmin"})">
                         <i class="fa fa-user mr-5"></i>
                         <span class="hidden-xs">
                             Admin
@@ -50,22 +50,38 @@
                  </li>
 
                 <li class="linkdown">
-                    <a href="javascript:void(0);">
+                 <a href="javascript:void(0);">
                         <i class="fa fa-user mr-5"></i>
                         <span class="hidden-xs">
                             Mi Cuenta
                             <i class="fa fa-angle-down ml-5"></i>
                         </span>
                     </a>
-                    <ul class="w-150">
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Registrarse</a></li>
-                        <li class="divider"></li>
-                        <li><a href="wishlist.html">Lista de Deseos (5)</a></li>
-                        @*<li>@Html.ActionLink("Ver Carrito", "vercarrito", "VerCarrito")</li>*@
-                        <li><a href="checkout.html">Caja</a></li>
-                    </ul>
+                    <div class="register">
+                        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <ul class="w-150">
+                                <li><a href="@Url.Action("login","Cuenta")" role="button" data-toggle="modal">Login</a></li>
+     
+                                <li><a href="@Url.Action("registrar","Cuenta")" role="button" data-toggle="modal"> Registrar </a></li>
+                            </ul>
+                           
+                        }
+                        else
+                        {
+                            <ul class="w-150">
+                                <li><a href="#">Hola @TrabajoFinal.Controllers.HomeController.ObtenerNombreUsuario()</a></li>
+
+                                <li><a href="@Url.Action("Logout", "Home" )"> Cerrar Sesion </a></li>
+                            </ul>
+                            
+                        }
+                    </div>
+                   
+
                 </li>
+
+          
 
                 <li class="linkdown">
                     <a href="javascript:void(0);">
@@ -141,8 +157,8 @@
                 <div class="col-sm-2 vertical-align header-items hidden-xs">
                     <div class="header-item mr-5">
                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Lista de Deseos">
-                            <i class="fa fa-heart-o"></i>
-                            <sub>32</sub>
+                            <i  class="fa fa-heart-o"></i>
+                            <sub id="nroProductosCarrito" class="text-primary">0</sub>
                         </a>
                     </div>
                 
@@ -258,6 +274,102 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </footer>
+
+
+
+    <!--  = Modal Windows =  -->
+    <!--  ==========  -->
+    <!--  = Login =  -->
+    <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="loginModalLabel"><span class="light">Login</span> To Webmarket</h3>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="@Url.Action("Login","Home")">
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="text" class="input-block-level" name="usuario" placeholder="Usuario" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="password" class="input-block-level" name="clave" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox" />
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary input-block-level bold higher">
+                    Iniciar Sesión
+                </button>
+            </form>
+            <p class="center-align push-down-0">
+                <a href="#" data-dismiss="modal">Forgot your password?</a>
+            </p>
+        </div>
+    </div>
+
+
+    <!--  = Register =  -->
+    <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="registerModalLabel"><span class="light">Registrar</span> a Webmarket</h3>
+        </div>
+
+        <form method="post" action="@Url.Action("RegistrarCliente","Home")">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="input-block-level" name="Nombres" placeholder="Nombre" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="input-block-level" name="Apellidos" placeholder="Apellidos" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="input-block-level" name="Usuario" placeholder="Usuario" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="password" class="input-block-level" name="Clave" placeholder="Password" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="email" class="input-block-level" name="Correo" placeholder="Email" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="input-block-level" name="Celular" placeholder="celular" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="input-block-level" name="Direccion" placeholder="Direccion" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger input-block-level bold higher">
+                REGISTRAR
+            </button>
+        </form>
+        <p class="center-align push-down-0">
+            <a data-toggle="modal" role="button" href="#loginModal" data-dismiss="modal">Already Registered?</a>
+        </p>
+    </div>
+
+
+
 
     <!-- JavaScript Files -->
     <script type="text/javascript" src="~/js/jquery-3.1.1.min.js"></script>

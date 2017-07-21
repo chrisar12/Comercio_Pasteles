@@ -14,8 +14,8 @@ namespace TrabajoFinal.Models
     
     public partial class Usuario
     {
-        public int UsiarioId { get; set; }
-        public string usuario1 { get; set; }
-        public string contraseña { get; set; }
+        public int UsuarioId { get; set; }
+        public string Nickname { get; set; }
+        public string Clave { get; set; }
     }
 }
