@@ -8,6 +8,7 @@ namespace TrabajoFinal.Controllers
 {
     public class CuentaController : Controller
     {
+        private Models.BDPastelEntities1 bd = new Models.BDPastelEntities1();
         // GET: Cuenta
         public ActionResult login()
         {
@@ -16,6 +17,13 @@ namespace TrabajoFinal.Controllers
         public ActionResult registrar()
         {
             return View();
+        }
+        public ActionResult vercuentacliente()
+        {
+            var cliente = bd.Cliente.Find(Helper.SessionHelper.GetUser());
+
+           
+            return View(cliente);
         }
     }
 }

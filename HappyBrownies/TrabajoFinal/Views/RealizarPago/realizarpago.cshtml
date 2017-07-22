@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@model  TrabajoFinal.Models.Cliente
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,14 +61,27 @@
                             <i class="fa fa-angle-down ml-5"></i>
                         </span>
                     </a>
-                    <ul class="w-150">
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Registrarse</a></li>
-                        <li class="divider"></li>
-                        <li><a href="wishlist.html">Lista de Deseos (5)</a></li>
-                        @*<li>@Html.ActionLink("Ver Carrito", "vercarrito", "VerCarrito")</li>*@
-                        <li><a href="checkout.html">Caja</a></li>
-                    </ul>
+                    <div class="register">
+                        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <ul class="w-150">
+                                <li><a href="@Url.Action("login","Cuenta")" role="button" data-toggle="modal">Login</a></li>
+
+                                <li><a href="@Url.Action("registrar","Cuenta")" role="button" data-toggle="modal"> Registrar </a></li>
+                            </ul>
+
+                        }
+                        else
+                        {
+                            <ul class="w-150">
+                                <li><a href="#">Hola @TrabajoFinal.Controllers.HomeController.ObtenerNombreUsuario()</a></li>
+
+                                <li><a href="@Url.Action("Logout", "Home" )"> Cerrar Sesion </a></li>
+                            </ul>
+
+                        }
+                    </div>
+
                 </li>
 
              
@@ -187,10 +201,10 @@
 
                         <ul class="list list-unstyled">
                             <li>
-                                <a href="my-account.html">Mi Cuenta</a>
+                                <a href="@Url.Action("vercuentacliente", "Cuenta")">Mi Cuenta</a>
                             </li>
                             <li class="active">
-                                <a href="cart.html">Mi Carrito <span class="text-primary">(3)</span></a>
+                                <a href="@Url.Action("vercarrito", "VerCarrito")">Mi Carrito <span id="nroProductosCarrito" class="text-primary">(3)</span></a>
                             </li>
                             <li>
                                 <a href="order-list.html">Mis Pedidos</a>
@@ -198,9 +212,7 @@
                             <li>
                                 <a href="wishlist.html">Lista de Deseos <span class="text-primary">(5)</span></a>
                             </li>
-                            <li>
-                                <a href="user-information.html">Configuraciones</a>
-                            </li>
+                           
                         </ul>
                     </div><!-- end widget -->
 
@@ -320,54 +332,40 @@
                                 <div class="tab-pane" id="billing-info">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h5 class="thin subtitle">Billing Address</h5>
-                                            <div class="form-group input-group-lg">
-                                                <select class="form-control">
+                                            <form action="#" method="post" class="form-horizontal form-checkout">
 
-                                                    <option value="Austria">Austria</option>
-                                                    <option value="Azerbaijan">Azerbaijan</option>
-                                                    <option value="Bahamas">Bahamas</option>
-                                                    <option value="Bahrain">Bahrain</option>
-                                                    <option value="Bangladesh">Bangladesh</option>
-                                                    <option value="Barbados">Barbados</option>
-                                                    <option value="Belarus">Belarus</option>
+                                                <div class="form-group">
+                                                    <label for="email" class="col-sm-2 control-label">Nombre</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" id="firstName" placeholder="Nombre" class="form-control input-md required" required="" value='@Model.Nombres  @Model.Apellidos' />
+                                                    </div>
+                                                </div><!-- end form-group -->
 
-                                                </select>
-                                            </div><!-- end form-group -->
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input id="name" type="text" placeholder="Nombre" name="firstname" class="form-control input-md required">
-                                                    </div><!-- end form-group -->
-                                                    <div class="form-group">
-                                                        <input id="email" type="text" placeholder="Email" name="email" class="form-control input-md required email">
-                                                    </div><!-- end form-group -->
-                                                </div><!-- end col -->
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input id="surname" type="text" placeholder="Apellidos" name="lastname" class="form-control input-md required">
-                                                    </div><!-- end form-group -->
-                                                    <div class="form-group">
-                                                        <input id="phone" type="tel" placeholder="Telefono" name="phone" class="form-control input-md required">
+                                                <div class="form-group">
+                                                    <label for="email" class="col-sm-2 control-label">Telefono</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="tel" id="telephone" placeholder="Telefono" class="form-control input-md required" required="" value="@Model.Celular" />
                                                     </div><!-- end form-group -->
                                                 </div>
-                                            </div><!-- end row -->
-                                            <div class="form-group">
-                                                <input id="billingAddress" type="text" placeholder="Direccion 1" name="address1" class="form-control input-md required">
-                                            </div><!-- end form-group -->
-                                            <div class="form-group">
-                                                <input id="billingAddress2" type="text" placeholder="Direccion 2" name="address2" class="form-control input-md required">
-                                            </div><!-- end form-group -->
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input id="city" type="text" placeholder="Distrito" name="city" class="form-control input-md required">
-                                                    </div><!-- end form-group -->
-                                                </div><!-- end col -->
 
-                                            </div><!-- end row -->
-                                        </div><!-- end col -->
+                                                <div class="form-group">
+                                                    <label for="email" class="col-sm-2 control-label">Correo</label>
+                                                    <div class="col-sm-10">
+
+                                                        <input type="email" id="email" placeholder="Email" class="form-control input-md required" required="" value="@Model.Correo" />
+                                                    </div><!-- end form-group -->
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email" class="col-sm-2 control-label">Direccion</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" id="addr1" placeholder="Direccion 1" class="form-control input-md required" required="" value="@Model.Direccion" />
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                           </div><!-- end col -->
 
                                         <div class="col-md-6">
                                             <h5 class="thin subtitle">Shipping Address</h5>
@@ -596,7 +594,7 @@
                     data: carrito,
                     success: function () {
                         localStorage.removeItem("carrito");
-                        window.location = '@Url.Action("Index","Home")';
+                        window.location = '@Url.Action("confirmacioncompra","ConfirmacionCompra")';
                     }
                 });
 
@@ -608,6 +606,8 @@
         function CargarProductos(productos) {
             var html = '';
             var total = 0;
+
+            $("#nroProductosCarrito").text('(' + productos.length + ')');
 
             $.each(productos, function () {
                 total += this.Precio * this.Cantidad

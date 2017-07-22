@@ -96,6 +96,7 @@
                     <div class="col-sm-12 text-left">
                         <h2 class="title">Confirmacion de Compra</h2>
                         <h5>Gracias por su compra</h5>
+                        <h5>Su pedido sera atendido de inmediato</h5>
                     </div><!-- end col -->
                 </div><!-- end row -->
 
@@ -104,25 +105,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th colspan="2">Item</th>
-                                        <th><div class="align-center">Quantity</div></th>
-                                        <th><div class="align-right">Price</div></th>
-                                    </tr>
-
-                                </thead>
-
-                                <tbody id="itemcarrito"></tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="stronger">Total:</td>
-                                    <td class="stronger"><div id="totalCompra" class="size-16 align-right">0.00</div></td>
-                                </tr>
-
-                            </table><!-- end table -->
+                           
                         </div><!-- end table-responsive -->
 
                         <hr class="spacer-10 no-border">
@@ -140,32 +123,4 @@
 </section>
 <!-- end section -->
 
-<script>
-        $(function () {
-            var carrito = localStorage.getItem("carrito");
-            var productos = [];
-            if (carrito != null) {
-                productos = JSON.parse(carrito);
-                CargarProductos(productos);
-            }
-        });
-        function CargarProductos(productos) {
-            var html = '';
-            var total = 0;
 
-            $.each(productos, function () {
-                total += this.Precio * this.Cantidad
-                html += '<tr>' +
-                '            <td class="image"><img src="/ImgProductos/' + this.Imagen + '" alt="" width="124" height="124" /></td>' +
-                '            <td class="desc">' + this.Denominacion + ' &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>' +
-                '            <td class="qty">' +
-                '                <input type="text" class="tiny-size" value="' + this.Cantidad + '" />' +
-                '           </td>' +
-                '           <td class="price">S/. ' + this.Precio + '</td>' +
-                '          </tr>'
-            });
-            $('#itemcarrito').html(html);
-
-            $("#totalCompra").text('S/.' + total);
-        }
-</script>

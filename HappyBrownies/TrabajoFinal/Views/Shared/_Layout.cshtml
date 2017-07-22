@@ -110,7 +110,19 @@
                        
                             <div class="cart-footer">
                                 <a href="@Url.Action("vercarrito", "VerCarrito")" class="pull-left"><i class="fa fa-shopping-basket mr-5"></i>Carrito</a>
-                                <a href="@Url.Action("realizarpago", "RealizarPago")" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Realizar Pago</a>
+
+                                <div class="proceed">
+                                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                                    {
+                                        <a href="@Url.Action("realizarpago", "RealizarPago")" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Realizar Pago</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("login","Cuenta")" role="button" data-toggle="modal">Realizar Pago</a>
+                                    }
+                                    
+                                </div>
+                              
                                 
                             </div>
          

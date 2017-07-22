@@ -422,6 +422,7 @@
     <Content Include="Views\VerCarrito\pruebax.cshtml" />
     <Content Include="Views\Cuenta\login.cshtml" />
     <Content Include="Views\Cuenta\registrar.cshtml" />
+    <Content Include="Views\Cuenta\vercuentacliente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

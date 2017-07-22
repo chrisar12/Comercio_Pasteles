@@ -144,10 +144,10 @@
 
                         <ul class="list list-unstyled">
                             <li>
-                                <a href="my-account.html">Mi Cuenta</a>
+                                <a href="@Url.Action("vercuentacliente", "Cuenta")">Mi Cuenta</a>
                             </li>
                             <li class="active">
-                                <a href="cart.html">Mi Carrito <span class="text-primary">(3)</span></a>
+                                <a href="@Url.Action("vercarrito", "VerCarrito")">Mi Carrito <span id="nroProductosCarrito" class="text-primary">(0)</span></a>
                             </li>
                             <li>
                                 <a href="order-list.html">Mis Pedidos</a>
@@ -155,9 +155,7 @@
                             <li>
                                 <a href="wishlist.html">Lista de Deseos <span class="text-primary">(5)</span></a>
                             </li>
-                            <li>
-                                <a href="user-information.html">Configuraciones</a>
-                            </li>
+                        
                         </ul>
                     </div><!-- end widget -->
 
@@ -287,6 +285,8 @@
         function CargarProductos(productos) {
             var html = '';
             var total = 0;
+
+            $("#nroProductosCarrito").text('(' + productos.length + ')');
 
             $.each(productos, function () {
                 total += this.Precio * this.Cantidad
