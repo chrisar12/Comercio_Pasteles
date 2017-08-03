@@ -58,7 +58,7 @@
                                 <li>
                                     <a><i class="fa fa-edit"></i> Administrar <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="form_general.html">Cuentas Admin</a></li>
+                                        <li><a href="@Url.Action("Index","Usuario")">Cuentas Admin</a></li>
                                         <li><a href="form_advanced.html">Cuentas Cientes</a></li>
                                         <li><a href="form_validation.html">Validar</a></li>
                                         <li><a href="form_upload.html">Actualizar</a></li>
@@ -99,56 +99,25 @@
                             <!-- mi cuenta -->
                             
                             <li class="linkdown">
-                                @*<div class="register">
-                                    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                                    {
-                                  
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/ImgProductos/no_disponible.jpg" alt=""><span class="top_menu_user_name">Hola @TrabajoFinal.Areas.loginadmin.Controllers.loginController.ObtenerNombreUsuario()</span>
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right profile-dropdown">
+                                    <li><a href="profile.html"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                                    <li class="top-menu-border-top"><a href="@Url.Action("Logout", "login", new {Area="loginadmin"})"><i class="fa fa-sign-out"></i>Cerrar Sesion</a></li>
+                                </ul>
 
-                                    }
-                                    else
-                                    {
-                                        <ul class="w-150">
-                                            <li><a href="#">Hola @TrabajoFinal.Areas.loginadmin.Controllers.loginController.ObtenerNombreUsuario()</a></li>
-
-                                            <li><a href="@Url.Action("Logout", "login", new {Area="loginadmin"})"> Cerrar Sesion </a></li>
-                                        </ul>
-
-                                    }
-                                </div>*@
+                         
 
 
-                                @*<div class="register">
-
-
-                                    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                                    {
-                                        foreach (var item in ViewBag.nombre)
-                                        {
-                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                <img src="~/ImgProductos/no_disponible.jpg" alt=""><span class="top_menu_user_name">@item.Nickname</span>
-                                                <span class=" fa fa-angle-down"></span>
-                                            </a>
-                                        }
-                                    }
-                                    else
-                                    {
-
-                                        foreach (var item in ViewBag.nombre)
-                                        {
-                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                <img src="~/ImgProductos/no_disponible.jpg" alt=""><span class="top_menu_user_name">@item.Nickname</span>
-                                                <span class=" fa fa-angle-down"></span>
-                                            </a>
-                                        }
-
-                                    }
-                                    </div>*@
+                            
 
                                     <ul class="dropdown-menu dropdown-usermenu pull-right profile-dropdown">
                                         <li><a href="profile.html"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
                                         <li class="top-menu-border-top"><a href="@Url.Action("cuentaadmin","CuentaAdmin",new {Area="loginadmin"})"><i class="fa fa-sign-out"></i>Log Out</a></li>
                                     </ul>
-</li>
+                            </li>
 
                             <!-- top navigation -->
 

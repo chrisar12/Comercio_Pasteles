@@ -13,7 +13,7 @@ namespace TrabajoFinal.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var productos = bd.Producto.Take(20).ToList();
+            var productos = bd.Producto.Take(4).ToList();
           //  ViewBag.productomasvendidos= bd.Producto.Take(3).ToList();
             ViewBag.listacategoria = bd.Categoria.ToList(); 
             //ViewBag.clave = id;

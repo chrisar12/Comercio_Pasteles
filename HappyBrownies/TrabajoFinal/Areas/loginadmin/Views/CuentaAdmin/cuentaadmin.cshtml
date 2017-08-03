@@ -3,10 +3,10 @@
 <form method="post" action="@Url.Action("Login","login",new {Area="loginadmin"})">
     <h1>Iniciar Sesion</h1>
     <div>
-        <input type="text" class="form-control" placeholder="Nombre" required="" />
+        <input type="text" class="form-control" name="usuario" placeholder="Nombre" required="" />
     </div>
     <div>
-        <input type="password" class="form-control" placeholder="Contraseña" required="" />
+        <input type="password" class="form-control" name="clave" placeholder="Contraseña" required="" />
     </div>
     <div class="text-left">
         <button type="submit" class="btn btn-default submit">Entrar</button>

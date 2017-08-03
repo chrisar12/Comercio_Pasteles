@@ -246,9 +246,16 @@
                             <a href="@Url.Action("productos","Productos")" class="btn btn-light semi-circle btn-md pull-left">
                                 <i class="fa fa-arrow-left mr-5"></i> Continua Comprando
                             </a>
+                           <a> @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                <a href="@Url.Action("realizarpago", "RealizarPago")" class="btn btn-default semi-circle btn-md pull-right"><i class="fa fa-arrow-right ml-5"></i>Realizar Pago</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("login","Cuenta")"  class="btn btn-default semi-circle btn-md pull-right" role="button" data-toggle="modal">Realizar Pago</a>
+                            }
 
-                            <a href="@Url.Action("realizarpago","RealizarPago")" class="btn btn-default semi-circle btn-md pull-right">
-                                Realizar Pago <i class="fa fa-arrow-right ml-5"></i>
+                          
                             </a>
                         </div><!-- end col -->
                     </div><!-- end row -->

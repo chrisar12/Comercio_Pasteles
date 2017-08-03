@@ -22,13 +22,17 @@ namespace TrabajoFinal.Areas.loginadmin.Controllers
             if (u != null)
             {
                 Helper.SessionHelper.AddUserToSession(u.UsuarioId.ToString());
+                return RedirectToAction("inicio", "pagina", new { Area = "Admin", ViewBag.nombre });
+               
+            }else {
+                return RedirectToAction("cuentaadmin", "CuentaAdmin", new { Area = "loginadmin" });
             }
-            return RedirectToAction("inicio", "pagina", new { Area = "Admin" , ViewBag.nombre });
+           
         }
         public ActionResult Logout()
         {
             Helper.SessionHelper.DestroyUserSession();
-            return RedirectToAction("cuenta", "Cuenta", new { Area = "loginadmin" });
+            return RedirectToAction("cuentaadmin", "CuentaAdmin", new { Area = "loginadmin" });
         }
         public static string ObtenerNombreUsuario()
         {
